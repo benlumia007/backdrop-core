@@ -20,7 +20,7 @@ class Sidebar {
 	/**
 	 * $post post.
 	 *
-	 * @var $this Controller.
+	 * @var string
 	 */
 	public $sidebar_id;
 
@@ -42,11 +42,11 @@ class Sidebar {
 		$args = array(
 			'name'          => $name,
 			'id'            => $id,
-			'description'   => __( 'Widgets placed in this area will appear on all posts and pages with a sidebar.', 'pattonwebz' ),
+			'description'   => __( 'Widgets placed in this area will appear on all posts and pages with a sidebar.', 'backdrop' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</aside><hr class="hr-row-divider">',
-			'before_title'  => '<h3 class="widget-title h4">',
-			'after_title'   => '</h3>',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
 		);
 		register_sidebar( $args );
 	}
