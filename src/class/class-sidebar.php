@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Register;
+namespace Benlumia007\Backdrop\Framework;
 
 /**
  * Register Sidebar
@@ -55,6 +55,7 @@ class Sidebar {
 	public function register_custom_sidebar_init() {
 		add_action( 'widgets_init', array( $this, 'register_custom_sidebar' ) );
 	}
+
 	/**
 	 * Register Custom Sidebar
 	 */
