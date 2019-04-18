@@ -65,7 +65,7 @@ class Framework {
 		$this->theme_dir = trailingslashit( get_template_directory() );
 		$this->theme_uri = trailingslashit( get_template_directory_uri() );
 
-		$this->load_files();
+		$this->class_loader();
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Framework {
 	 * @access protected
 	 * @return void
 	 */
-	public function load_files() {
-		require_once $this->theme_dir . $this->backdrop_path . '/sidebar/functions-sidebar.php';
+	public function class_loader() {
+		require_once $this->theme_dir . $this->backdrop_path . '/class/class-sidebar.php';
 	}
 }
