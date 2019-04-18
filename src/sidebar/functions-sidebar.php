@@ -26,6 +26,8 @@ class Sidebar {
 
 	/**
 	 * Construct
+	 *
+	 * @param array $sidebar_id array.
 	 */
 	public function __construct( $sidebar_id = array() ) {
 		$this->sidebar_id = apply_filters(
@@ -49,7 +51,7 @@ class Sidebar {
 			),
 			'custom'  => array(
 				'name' => esc_html__( 'Custom Sidebar', 'backdrop' ),
-				'desc' => esc_html__( 'All widgets will be on all of the custom pages.', 'backdrop' ),
+				'desc' => esc_html__( 'All widgets will be on all of the pages and posts.', 'backdrop' ),
 			),
 		);
 	}
@@ -74,6 +76,7 @@ class Sidebar {
 	 *
 	 * @param string $name outputs name.
 	 * @param string $id displays id for sidebar.
+	 * @param string $desc displays description.
 	 */
 	public function create_sidebar( $name, $id, $desc ) {
 		$args = array(
