@@ -30,12 +30,9 @@ class Sidebar {
 	 * @param array $sidebar_id array.
 	 */
 	public function __construct( $sidebar_id = array() ) {
-		$this->sidebar_id = apply_filters(
-			'backdrop_default_sidebars',
-			array_merge(
-				$sidebar_id,
-				$this->default_sidebars()
-			)
+		$this->sidebar_id = array_merge(
+			$sidebar_id,
+			$this->default_sidebars()
 		);
 		$this->register_custom_sidebar_init();
 	}
