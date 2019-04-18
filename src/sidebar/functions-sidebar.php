@@ -29,7 +29,7 @@ class Sidebar {
 	 */
 	public function __construct( $sidebar_id = array() ) {
 		$this->sidebar_id = apply_filters(
-			'backdrop_default_sidebar',
+			'backdrop_default_sidebars',
 			array_merge(
 				$sidebar_id,
 				$this->default_sidebars()
@@ -43,8 +43,14 @@ class Sidebar {
 	 */
 	public function default_sidebars() {
 		return array(
-			'primary' => 'Primary Sidebar',
-			'custom'  => 'Custom Sidebar',
+			'primary' => array(
+				'name' => esc_html__( 'Primary Sidebar', 'backdrop' ),
+				'desc' => esc_html__( 'All widgets will be on all of the pages and posts.', 'backdrop' ),
+			),
+			'custom'  => array(
+				'name' => esc_html__( 'Custom Sidebar', 'backdrop' ),
+				'desc' => esc_html__( 'All widgets will be on all of the custom pages.', 'backdrop' ),
+			),
 		);
 	}
 
@@ -59,7 +65,7 @@ class Sidebar {
 	 */
 	public function register_custom_sidebar() {
 		foreach ( $this->sidebar_id as $key => $value ) {
-			$this->create_sidebar( $value, $key );
+			$this->create_sidebar( $value['name'], $key, $value['desc'] );
 		}
 	}
 
@@ -69,11 +75,11 @@ class Sidebar {
 	 * @param string $name outputs name.
 	 * @param string $id displays id for sidebar.
 	 */
-	public function create_sidebar( $name, $id ) {
+	public function create_sidebar( $name, $id, $desc ) {
 		$args = array(
 			'name'          => $name,
 			'id'            => $id,
-			'description'   => __( 'Widgets placed in this area will appear on all posts and pages with a sidebar.', 'backdrop' ),
+			'description'   => $desc,
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title">',
