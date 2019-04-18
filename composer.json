@@ -19,7 +19,7 @@
           "Backdrop\\": "src/"
         },
         "files": [
-            "src/backdrop.php"
+            "src/class-framework.php"
         ]
     },
     "require": {
