@@ -49,16 +49,33 @@ class Framework {
 	 * @access public
 	 * @var    string
 	 */
-	public $backdrop_path = 'vendor/benlumia007/backdrop-framework/src';
+	public $backdrop_path = 'vendor/benlumia007/backdrop-core/src';
 
 	/**
-	 * Registers the default features for the framework.
+	 * Register default features for the framework.
 	 *
 	 * @since  1.0.0
-	 * @access public
+	 * @access private
 	 * @return void
 	 */
 	public function __construct() {
+		/**
+		 * Directory Path
+		 */
+		$this->theme_dir = trailingslashit( get_template_directory() );
+		$this->theme_uri = trailingslashit( get_template_directory_uri() );
 
+		$this->load_files();
+	}
+
+	/**
+	 * Load classes
+	 *
+	 * @since 1.0.0
+	 * @access protected
+	 * @return void
+	 */
+	public function load_files() {
+		require_once $this->theme_dir . $this->backdrop_path . '/sidebar/functions-sidebar.php';
 	}
 }
