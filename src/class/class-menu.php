@@ -24,6 +24,11 @@ class Menu {
 	 */
 	public $menu_id;
 
+	/**
+	 * Construct
+	 *
+	 * @param string $menu_id string.
+	 */
 	public function __construct( $menu_id = array() ) {
 		$this->menu_id = array_merge(
 			$menu_id,
@@ -62,6 +67,7 @@ class Menu {
 	 * Create Menus
 	 *
 	 * @param string $name outputs name.
+	 * @param string $id output id.
 	 */
 	public function create_menus( $name, $id ) {
 		$args = array(
