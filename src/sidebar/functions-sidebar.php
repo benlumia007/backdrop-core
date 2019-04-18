@@ -24,20 +24,35 @@ class Sidebar {
 	 */
 	public $sidebar_id;
 
+	/**
+	 * Construct
+	 */
 	public function __construct() {
 		$this->register_custom_sidebar_init();
 	}
 
+	/**
+	 * Register Custom Sidebar Initialize
+	 */
 	public function register_custom_sidebar_init() {
 		add_action( 'widgets_init', array( $this, 'register_custom_sidebar' ) );
 	}
 
+	/**
+	 * Register Custom Sidebar
+	 */
 	public function register_custom_sidebar() {
 		foreach ( $this->sidebar_id as $key => $value ) {
 			$this->create_sidebar( $key );
 		}
 	}
 
+	/**
+	 * Create Sidebar
+	 *
+	 * @param string $name outputs name.
+	 * @param string $id displays id for sidebar.
+	 */
 	public function create_sidebar( $name, $id ) {
 		$args = array(
 			'name'          => $name,
