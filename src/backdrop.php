@@ -29,5 +29,12 @@ class Framework {
 	 *
 	 * @var string
 	 */
-	public $theme_path = '';
+	public $theme_dir = '';
+
+	/**
+	 * Define Theme's URI
+	 *
+	 * @var string
+	 */
+	public $theme_uri = '';
 }
