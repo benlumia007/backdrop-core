@@ -27,21 +27,38 @@ class Framework {
 	/**
 	 * Define Theme's Directory Path
 	 *
-	 * @var string
+	 * @since  1.0.0
+	 * @access public
+	 * @var    string
 	 */
 	public $theme_dir = '';
 
 	/**
 	 * Define Theme's URI
 	 *
-	 * @var string
+	 * @since  1.0.0
+	 * @access public
+	 * @var    string
 	 */
 	public $theme_uri = '';
 
 	/**
 	 * Define Backdrop Famework's Directory
 	 *
-	 * @var string
+	 * @since  1.0.0
+	 * @access public
+	 * @var    string
 	 */
 	public $backdrop_path = 'vendor/benlumia007/backdrop-framework/src';
+
+	/**
+	 * Registers the default features for the framework.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function __construct() {
+
+	}
 }
