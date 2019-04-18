@@ -23,12 +23,31 @@ class Sidebar {
 	 * @var string
 	 */
 	public $sidebar_id;
+
 	/**
 	 * Construct
 	 */
-	public function __construct() {
+	public function __construct( $sidebar_id = array() ) {
+		$this->sidebar_id = apply_filters(
+			'backdrop_default_sidebar',
+			array_merge(
+				$sidebar_id,
+				$this->default_sidebars()
+			)
+		);
 		$this->register_custom_sidebar_init();
 	}
+
+	/**
+	 * Default Sidebar
+	 */
+	public function default_sidebars() {
+		return array(
+			'primary' => 'Primary Sidebar',
+			'custom'  => 'Custom Sidebar',
+		);
+	}
+
 	/**
 	 * Register Custom Sidebar Initialize
 	 */
@@ -40,9 +59,10 @@ class Sidebar {
 	 */
 	public function register_custom_sidebar() {
 		foreach ( $this->sidebar_id as $key => $value ) {
-			$this->create_sidebar( $key );
+			$this->create_sidebar( $value, $key );
 		}
 	}
+
 	/**
 	 * Create Sidebar
 	 *
