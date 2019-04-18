@@ -7,12 +7,10 @@
  * @license     GNU General PUblic License v2 or later ( https://www.gnu.org/licenses/gpl-2.0.html )
  * @author      Benjamin Lu ( https://benjlu.com )
  */
-
 /**
  * Define namespace
  */
 namespace Benlumia007\Backdrop\Register;
-
 /**
  * Register Sidebar
  */
@@ -23,21 +21,18 @@ class Sidebar {
 	 * @var string
 	 */
 	public $sidebar_id;
-
 	/**
 	 * Construct
 	 */
 	public function __construct() {
 		$this->register_custom_sidebar_init();
 	}
-
 	/**
 	 * Register Custom Sidebar Initialize
 	 */
 	public function register_custom_sidebar_init() {
 		add_action( 'widgets_init', array( $this, 'register_custom_sidebar' ) );
 	}
-
 	/**
 	 * Register Custom Sidebar
 	 */
@@ -46,7 +41,6 @@ class Sidebar {
 			$this->create_sidebar( $key );
 		}
 	}
-
 	/**
 	 * Create Sidebar
 	 *
