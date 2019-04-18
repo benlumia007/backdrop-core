@@ -23,4 +23,11 @@ class Framework {
 	 * @var string
 	 */
 	public static $version = '1.0.0';
+
+	/**
+	 * Define Theme's Directory Path
+	 *
+	 * @var string
+	 */
+	public $theme_path = '';
 }
