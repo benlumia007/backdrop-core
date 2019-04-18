@@ -32,7 +32,7 @@ class Sidebar {
 	public function __construct( $sidebar_id = array() ) {
 		$this->sidebar_id = array_merge(
 			$sidebar_id,
-			$this->default_sidebars()
+			$this->default_sidebar()
 		);
 		$this->register_custom_sidebar_init();
 	}
@@ -40,14 +40,10 @@ class Sidebar {
 	/**
 	 * Default Sidebar
 	 */
-	public function default_sidebars() {
+	public function default_sidebar() {
 		return array(
 			'primary' => array(
 				'name' => esc_html__( 'Primary Sidebar', 'backdrop' ),
-				'desc' => esc_html__( 'All widgets will be on all of the pages and posts.', 'backdrop' ),
-			),
-			'custom'  => array(
-				'name' => esc_html__( 'Custom Sidebar', 'backdrop' ),
 				'desc' => esc_html__( 'All widgets will be on all of the pages and posts.', 'backdrop' ),
 			),
 		);
