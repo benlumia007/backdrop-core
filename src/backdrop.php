@@ -17,5 +17,10 @@ namespace Benlumia007\Backdrop;
  * Initialize Backdrop Core
  */
 class Framework {
-
+	/**
+	 * Define Backdrop Framework's Version
+	 *
+	 * @var string
+	 */
+	public static $version = '1.0.0';
 }
