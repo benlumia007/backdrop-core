@@ -37,4 +37,11 @@ class Framework {
 	 * @var string
 	 */
 	public $theme_uri = '';
+
+	/**
+	 * Define Backdrop Famework's Directory
+	 *
+	 * @var string
+	 */
+	public $backdrop_path = 'vendor/benlumia007/backdrop-framework/src';
 }
