@@ -29,36 +29,37 @@ class Customizer {
 
 	/**
 	 * Register register_panels
+	 *
+	 * @param object $manager customizer object.
 	 */
-	public function register_panels( $wp_customize ) {
-		$wp_customize->add_panel(
+	public function register_panels( $manager ) {
+		$manager->add_panel(
 			'theme_options',
-			array(
+			[
 				'title'    => esc_html__( 'Theme Options', 'backdrop' ),
 				'priority' => 10,
-			)
+			]
 		);
 	}
 
 	/**
 	 * Register register_sections
+	 *
+	 * @param object $manager customizer object.
 	 */
-	public function register_sections( $wp_customize ) {
-		// Move the color section to our theme options panel.
-		$wp_customize->get_section( 'colors' )->panel = 'theme_options';
-	}
+	public function register_sections( $manager ) {}
 
 	/**
 	 * Register register_settings
+	 *
+	 * @param object $manager customizer object.
 	 */
-	public function register_settings( $wp_customize ) {
-
-	}
+	public function register_settings( $manager ) {}
 
 	/**
 	 * Register register_controls
+	 *
+	 * @param object $manager customizer object.
 	 */
-	public function register_controls( $wp_customize ) {
-		
-	}
+	public function register_controls( $manager ) {}
 }
