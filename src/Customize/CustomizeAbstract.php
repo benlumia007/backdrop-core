@@ -13,6 +13,7 @@
  */
 namespace Benlumia007\Backdrop\Customize;
 
+use Benlumia007\Backdrop\Customize\CustomizeInterface;
 /**
  * Regiser Menu Class
  */
