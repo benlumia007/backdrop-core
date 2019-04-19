@@ -13,9 +13,30 @@
  */
 namespace Benlumia007\Backdrop\Register;
 
+use Benlumia007\Backdrop\Customize\CustomizeAbstract;
+
 /**
  * Regiser Menu Class
  */
 class Customizer extends CustomizeAbstract {
-	
+	/**
+	 * Register register_panels
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  object $manager customizer object.
+	 */
+	public function register_panels( $manager ) {
+		$manager->add_panel(
+			'theme_options',
+			[
+				'title'    => esc_html__( 'Theme Options', 'backdrop' ),
+				'priority' => 10,
+			]
+		);
+	}
+
+	public function register_sections( $manager ) {
+		$manager->get_section( 'colors' )->panel = 'theme_options';
+	}
 }
