@@ -77,6 +77,7 @@ class Framework {
 	 * @return void
 	 */
 	public function class_loader() {
+		require_once $this->theme_dir . $this->backdrop_path . '/class/class-customizer.php';
 		require_once $this->theme_dir . $this->backdrop_path . '/class/class-sidebar.php';
 		require_once $this->theme_dir . $this->backdrop_path . '/class/class-menu.php';
 	}
