@@ -79,7 +79,7 @@ class Menu {
 
 	/**
 	 * Loads Navigation.js
-	 */	
+	 */
 	public function load_nav_menus_scripts() {
 		/**
 		 *  This mainly for the primary navigation. THis allows to use click the dropdown for multiple depths.
@@ -89,8 +89,8 @@ class Menu {
 			'backdrop-navigation',
 			'backdropScreenReaderText',
 			array(
-				'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'camaraderie' ) . '</span>',
-				'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'camaraderie' ) . '</span>',
+				'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'backdrop' ) . '</span>',
+				'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'backdrop' ) . '</span>',
 			)
 		);
 	}
