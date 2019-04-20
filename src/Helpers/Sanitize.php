@@ -19,6 +19,11 @@ namespace Benlumia007\Backdrop\Helpers;
 class Sanitize {
 	/**
 	 * Loads choices for layouts
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @param string $input     String containing a layout string.
+	 * @param mixed  $settings  Object containing info about settings/controls that's being sanitized.
 	 */
 	public static function layouts( $input, $settings ) {
 		$choices = $setting->manager->get_control( $setting->manager )->choices;
