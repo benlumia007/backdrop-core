@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Backdrop Core ( framework.php )
  *
@@ -13,11 +13,10 @@
  */
 namespace Benlumia007\Backdrop\Customize;
 
-use Benlumia007\Backdrop\Customize\CustomizeInterface;
 /**
  * Regiser Menu Class
  */
-abstract class CustomizeAbstract implements CustomizeInterface {
+abstract class CustomizeAbstract {
 	/**
 	 * Loads Construct
 	 *
