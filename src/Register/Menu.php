@@ -52,6 +52,7 @@ class Menu {
 	 */
 	public function register_nav_menus_init() {
 		add_action( 'after_setup_theme', array( $this, 'register_nav_menus' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_nav_menus_scripts' ) );
 	}
 
 	/**
@@ -74,5 +75,23 @@ class Menu {
 			$id => $name,
 		);
 		register_nav_menus( $args );
+	}
+
+	/**
+	 * Loads Navigation.js
+	 */	
+	public function load_nav_menus_scripts() {
+		/**
+		 *  This mainly for the primary navigation. THis allows to use click the dropdown for multiple depths.
+		 */
+		wp_enqueue_script( 'backdrop-navigation', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/js/navigation.js' ), array( 'jquery' ), '1.0.0', true );
+		wp_localize_script(
+			'backdrop-navigation',
+			'backdropScreenReaderText',
+			array(
+				'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'camaraderie' ) . '</span>',
+				'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'camaraderie' ) . '</span>',
+			)
+		);
 	}
 }
