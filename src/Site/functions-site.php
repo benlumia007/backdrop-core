@@ -19,65 +19,105 @@ namespace Benlumia007\Backdrop\Site;
  * @since 1.0.0
  * @param array $args outputs site title.
  */
-function display_title( array $args = [] ) {
-	$args = wp_parse_args(
-		$args,
-		[
-			'tags'  => 'h1',
-			'class' => 'site-title',
-		]
-	);
-
-	$html = '';
-
-	$title = get_bloginfo( 'name', 'display' );
-
-	if ( $title ) {
-		$link = home_link(
+function display( $args = '' ) {
+	if ( 'site-title' === $args ) {
+		$args = wp_parse_args(
+			$args,
 			[
-				'text'  => $title,
-				'class' => $args['class'],
+				'tags'  => 'h1',
+				'class' => 'site-title',
+			]
+		);
+
+		$html = '';
+
+		$title = get_bloginfo( 'name' );
+
+		if ( $title ) {
+			$link = home_link(
+				[
+					'text'  => $title,
+					'class' => $args['class'],
+				]
+			);
+
+			$html = printf(
+				'<%1$s class="%2$s">%3$s</a>',
+				tag_escape( $args['tags'] ),
+				esc_attr( $args['class'] ),
+				$link // phpcs:ignore 
+			);
+		}
+		return apply_filters( 'backdrop_site_title', $html );
+	} elseif ( 'site-description' === $args ) {
+		$args = wp_parse_args(
+			$args,
+			[
+				'tag'   => 'h3',
+				'class' => 'site-description',
+			]
+		);
+
+		$html = '';
+
+		$description = get_bloginfo( 'description' );
+
+		if ( $description ) {
+			$html = printf(
+				'<%1$s class="%2$s">%3$s</%1$s>',
+				tag_escape( $args['tag'] ),
+				esc_attr( $args['class'] ),
+				$description // phpcs:ignore
+			);
+		}
+		return apply_filters( 'backdrop_site_description', $html );
+	} elseif ( 'site-link' === $args ) {
+		$args = wp_parse_args(
+			$args,
+			[
+				'text'   => '%s',
+				'class'  => 'site-link',
+				'before' => '',
+				'after'  => '',
 			]
 		);
 
 		$html = printf(
-			'<%1$s class="%2$s">%3$s</a>',
-			tag_escape( $args['tags'] ),
+			'<a class="%1$s" href="%2$s">%3$s</a>',
 			esc_attr( $args['class'] ),
-			$link // phpcs:ignore
+			esc_url( home_url( '/' ) ),
+			sprintf( $args['text'], get_bloginfo( 'name' ) ) // phpcs:ignore
 		);
-	}
-	return apply_filters( 'backdrop_site_title', $html );
-}
+		return apply_filters( 'backdrop_site_link', $html );
+	} elseif ( 'wp-link' === $args ) {
+		$args = wp_parse_args(
+			$args,
+			[
+				'text'   => '%s',
+				'class'  => 'wp-link',
+				'before' => '',
+				'after'  => '',
+			]
+		);
 
-/**
- * Displays Site Description
- *
- * @since 1.0.0
- * @param array $args outputs site description.
- */
-function display_description( array $args = [] ) {
-	$args = wp_parse_args(
-		$args,
-		[
-			'tag'   => 'h3',
-			'class' => 'site-description',
-		]
-	);
-
-	$html = '';
-
-	$description = get_bloginfo( 'description', 'display' );
-
-	if ( $description ) {
 		$html = printf(
-			'<%1$s class="%2$s">%3$s</%1$s>',
-			tag_escape( $args['tag'] ),
+			'<a class="%1$s" href="%2$s">%3$s</a>',
 			esc_attr( $args['class'] ),
-			$description // phpcs:ignore 
+			esc_url( __( 'https://wordpress.org', 'backdrop' ) ),
+			sprintf( $args['text'], esc_html__('WordPress', 'backdrop' ) ) // phpcs:ignore 
 		);
+		return apply_filters( 'backdrop_wp_link', $html );
+	} elseif ( 'theme-link' === $args ) {
+		$theme_name = wp_get_theme( get_template() );
+		$allowed    = array(
+			'abbr'    => array( 'title' => true ),
+			'acronym' => array( 'title' => true ),
+			'code'    => true,
+			'em'      => true,
+			'strong'  => true,
+		);
+		return printf( '<a href="%s">%s</a>', $theme_name->display( 'ThemeURI' ), wp_kses( $theme_name->display( 'Name' ), $allowed ) ); // phpcs:ignore
 	}
-	return apply_filters( 'backdrop_site_description', $html );
 }
 
 /**
