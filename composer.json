@@ -19,7 +19,8 @@
           "Benlumia007\\Backdrop\\": "src/"
         },
         "files": [
-            "backdrop.php"
+			"backdrop.php",
+			"src/Sidebar/display.php"
         ]
     },
     "require": {
