@@ -103,8 +103,8 @@ function display( $args = '' ) {
 		$html = printf(
 			'<a class="%1$s" href="%2$s">%3$s</a>',
 			esc_attr( $args['class'] ),
-			esc_url( __( 'https://wordpress.org', 'backdrop' ) ),
-			sprintf( $args['text'], esc_html__('WordPress', 'backdrop' ) ) // phpcs:ignore 
+			esc_url( __( 'https://wordpress.org', 'backdrop-core' ) ),
+			sprintf( $args['text'], esc_html__('WordPress', 'backdrop-core' ) ) // phpcs:ignore 
 		);
 		return apply_filters( 'backdrop_wp_link', $html );
 	} elseif ( 'theme-link' === $args ) {
