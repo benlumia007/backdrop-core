@@ -13,13 +13,6 @@
 namespace Benlumia007\Backdrop\Entry;
 
 /**
- * Displays Entry Title
- */
-function display() {
-	
-}
-
-/**
  * Table of Content
  *
  *  1.0 - General (Post Thumbnail)
