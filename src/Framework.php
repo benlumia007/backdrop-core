@@ -26,6 +26,7 @@ class Framework {
 		$this->theme_setup();
 		$this->load_default_menu();
 		$this->load_default_sidebar();
+		$this->load_global_layout();
 	}
 
 	/**
@@ -129,5 +130,12 @@ class Framework {
 	 */
 	public function load_default_sidebar() {
 		$default = new Register\Sidebar();
+	}
+
+	/**
+	 * Loads Global Layouts
+	 */
+	public function load_global_layout() {
+		$default = new Register\ThemeLayout();
 	}
 }
