@@ -82,11 +82,11 @@ function display( $args = '' ) {
 			]
 		);
 
-		$html = printf(
+		$html = sprintf(
 			'<a class="%1$s" href="%2$s">%3$s</a>',
 			esc_attr( $args['class'] ),
 			esc_url( home_url( '/' ) ),
-			sprintf( $args['text'], get_bloginfo( 'name' ) ) // phpcs:ignore
+			sprintf( $args['text'], get_bloginfo( 'name' ) )
 		);
 		return apply_filters( 'backdrop_site_link', $html );
 	} elseif ( 'wp-link' === $args ) {
@@ -100,11 +100,11 @@ function display( $args = '' ) {
 			]
 		);
 
-		$html = printf(
+		$html = sprintf(
 			'<a class="%1$s" href="%2$s">%3$s</a>',
 			esc_attr( $args['class'] ),
 			esc_url( __( 'https://wordpress.org', 'backdrop-core' ) ),
-			sprintf( $args['text'], esc_html__('WordPress', 'backdrop-core' ) ) // phpcs:ignore 
+			sprintf( $args['text'], esc_html__( 'WordPress', 'backdrop-core' ) )
 		);
 		return apply_filters( 'backdrop_wp_link', $html );
 	} elseif ( 'theme-link' === $args ) {
@@ -116,7 +116,7 @@ function display( $args = '' ) {
 			'em'      => true,
 			'strong'  => true,
 		);
-		return printf( '<a href="%s">%s</a>', $theme_name->display( 'ThemeURI' ), wp_kses( $theme_name->display( 'Name' ), $allowed ) ); // phpcs:ignore
+		return sprintf( '<a href="%s">%s</a>', $theme_name->display( 'ThemeURI' ), wp_kses( $theme_name->display( 'Name' ), $allowed ) );
 	}
 }
 
