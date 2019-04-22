@@ -7,10 +7,12 @@
  * @license        GNU General Public License v2 or later ( https://www.gnu.org/licenses/gpl-2.0.html )
  * @author         Benjamin Lu ( https://benjlu.com )
  */
+
 /**
  * Define namespace
  */
 namespace Benlumia007\Backdrop\Menu;
+
 /**
  *  Table of Content
  *
