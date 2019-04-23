@@ -13,12 +13,13 @@
  */
 namespace Benlumia007\Backdrop;
 
+use Benlumia007\Backdrop\Contracts\Bootable;
 use Benlumia007\Backdrop\Register;
 
 /**
  * Regiser Menu Class
  */
-class Framework {
+class Framework implements Bootable {
 	/**
 	 * Private static instance
 	 *
@@ -30,7 +31,11 @@ class Framework {
 	 * Private Constructor
 	 */
 	private function __construct() {
-		self::$instance = $this;
+		$this->theme_setup();
+		$this->load_menu();
+		$this->load_sidebar();
+		$this->load_layout();
+		$this->boot();
 	}
 
 	/**
@@ -50,10 +55,7 @@ class Framework {
 	 * @access public
 	 */
 	public function boot() {
-		$this->theme_setup();
-		$this->load_menu();
-		$this->load_sidebar();
-		$this->load_layout();
+		self::$instance = $this;
 	}
 
 	/**
