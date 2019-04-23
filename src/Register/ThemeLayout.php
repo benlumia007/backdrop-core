@@ -84,8 +84,7 @@ class ThemeLayout extends CustomizeAbstract {
 				$manager,
 				'global_layout',
 				[
-					'label'       => esc_html__( 'General Layout', 'backdrop' ),
-					'description' => esc_html__( 'General Layout applies to all layouts that supports in this theme.', 'backdrop' ),
+					'description' => esc_html__( 'General Layout applies to all layouts that supports in this theme.', 'backdrop-core' ),
 					'section'     => 'global_layout',
 					'settings'    => 'global_layout',
 					'type'        => 'radio-image',
