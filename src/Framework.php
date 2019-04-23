@@ -131,18 +131,6 @@ class Framework {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @param object $prop object.
-	 * @param object $object object.
-	 */
-	public function insert_object( $prop, $object ) {
-		$this->{$prop} = $object;
-	}
-
-	/**
-	 * Loads Default and Register Features
-	 *
-	 * @since 1.0.0
-	 * @access public
 	 */
 	public function load_menu() {
 		$this->menu = new Register\Menu();
