@@ -56,6 +56,7 @@ class Framework implements Bootable {
 	 */
 	public function boot() {
 		self::$instance = $this;
+		$this->theme_setup();
 	}
 
 	/**
@@ -68,7 +69,8 @@ class Framework implements Bootable {
 	 * @return void
 	 */
 	public function theme_setup() {
-		add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'fonts_enqueue' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'fontawesome_enqueue' ) );
 	}
 
 	/**
@@ -80,13 +82,28 @@ class Framework implements Bootable {
 	 * @access public
 	 * @return void
 	 */
-	public function theme_enqueue() {
-		/**
-		 * This will load local Google Fonts as part of the theme. Fira Sans and Merriweather. For more information regarding
-		 * this feature, please go to the following url. ( https://google-webfonts-helper.herokuapp.com/fonts ). This also will
-		 * load font awesome 5.0 into one css file.
-		 */
-		wp_enqueue_style( 'backdrop-custom-fonts', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/css/custom-fonts.css' ), array(), '1.0.0' );
+	public function fonts_enqueue() {
+		if ( true === apply_filters( 'backrop_cusom_fonts', true ) ) {
+			/**
+			 * This will load local Google Fonts as part of the theme. Fira Sans and Merriweather. For more information regarding
+			 * this feature, please go to the following url. ( https://google-webfonts-helper.herokuapp.com/fonts ). This also will
+			 * load font awesome 5.0 into one css file.
+			 */
+			wp_enqueue_style( 'backdrop-custom-fonts', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/fonts/custom-fonts.css' ), array(), '1.0.0' );
+		}
+	}
+
+	/**
+	 *  Enqueue Font Awesome 5 Free
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function fontawesome_enqueue() {
+		if ( true === apply_filters( 'backdrop_filter_fontawesome', true ) ) {
+			wp_enqueue_style( 'backdrop-fontawesome', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/font-awesome/css/all.css' ), array(), '1.0.0' );
+		}
 	}
 
 	/**
@@ -119,3 +136,5 @@ class Framework implements Bootable {
 		$this->layout = new Register\ThemeLayout();
 	}
 }
+
+
