@@ -68,8 +68,6 @@ class Framework {
 	public function theme_setup() {
 		add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue' ) );
-		$this->theme_support();
-		$this->theme_enqueue();
 	}
 
 	/**
@@ -133,6 +131,8 @@ class Framework {
 	 *
 	 * @since 1.0.0
 	 * @access public
+	 * @param object $prop object.
+	 * @param object $object object.
 	 */
 	public function insert_object( $prop, $object ) {
 		$this->{$prop} = $object;
@@ -146,7 +146,6 @@ class Framework {
 	 */
 	public function load_menu() {
 		$this->menu = new Register\Menu();
-		self::get_instance()->insert_object( 'menu', $this->menu );
 	}
 
 	/**
@@ -157,7 +156,6 @@ class Framework {
 	 */
 	public function load_sidebar() {
 		$this->sidebar = new Register\Sidebar();
-		self::get_instance()->insert_object( 'sidebar', $this->sidebar );
 	}
 
 	/**
@@ -168,6 +166,5 @@ class Framework {
 	 */
 	public function load_layout() {
 		$this->layout = new Register\ThemeLayout();
-		self::get_instance()->insert_object( 'layout', $this->layout );
 	}
 }
