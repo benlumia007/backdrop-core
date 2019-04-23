@@ -20,13 +20,40 @@ use Benlumia007\Backdrop\Register;
  */
 class Framework {
 	/**
-	 * Loads Constructor
+	 * Private static instance
+	 *
+	 * @var string
 	 */
-	public function __construct() {
+	private static $instance = null;
+
+	/**
+	 * Private Constructor
+	 */
+	private function __construct() {
+		self::$instance = $this;
+	}
+
+	/**
+	 * Get new get_instance();
+	 */
+	public static function get_instance() {
+		if ( null === self::$instance ) {
+			new self();
+		}
+		return self::$instance;
+	}
+
+	/**
+	 * Loads Default and Register Features
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function boot() {
 		$this->theme_setup();
-		$this->load_default_menu();
-		$this->load_default_sidebar();
-		$this->load_global_layout();
+		$this->load_menu();
+		$this->load_sidebar();
+		$this->load_layout();
 	}
 
 	/**
@@ -40,31 +67,27 @@ class Framework {
 	 */
 	public function theme_setup() {
 		add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
-
 		add_action( 'wp_enqueue_scripts', array( $this, 'theme_enqueue' ) );
+		$this->theme_support();
+		$this->theme_enqueue();
 	}
 
 	/**
-	 * Loads theme_support();
+	 * Loads Default and Register Features
 	 *
-	 * The theme_support(); is used to define any theme_support that's going to be used part of a theme.
-	 *
-	 * @since  1.0.0
+	 * @since 1.0.0
 	 * @access public
-	 * @return void
 	 */
 	public function theme_support() {
 		/**
 		 * By adding add_theme_support( 'title-tag' );, this will let WordPress manage all document titles and should be use instead of wp_title();.
 		 */
 		add_theme_support( 'title-tag' );
-
 		/**
 		 * By adding add_theme_support( 'automatic-feed-links' );, this feature when enabled allows feed links for post and comments
 		 * in the head of the theme. This feature should be used in place of of the deprecated function automatic_feed_links();.
 		 */
 		add_theme_support( 'automatic-feed-links' );
-
 		/**
 		 * By adding add_theme_support( 'html5', arrayy() );, this feature when enabled allows the user use of HTML5 markup for
 		 * comment list, comment forms, search forms, galleries, and captions.
@@ -96,8 +119,7 @@ class Framework {
 		 * this feature, please go to the following url. ( https://google-webfonts-helper.herokuapp.com/fonts ). This also will
 		 * load font awesome 5.0 into one css file.
 		 */
-		wp_enqueue_style( 'backdrop-custom-fonts-css', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/css/custom-fonts.css' ), array(), '1.0.0' );
-
+		wp_enqueue_style( 'backdrop-custom-fonts', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/css/custom-fonts.css' ), array(), '1.0.0' );
 		/**
 		 * This allows users to comment by clicking on reply so that it gets nested.
 		 */
@@ -107,35 +129,45 @@ class Framework {
 	}
 
 	/**
-	 * Loads and Register Navigation Menus.
+	 * Loads Default and Register Features
 	 *
-	 * When this is registered, Primary Navigation and Social Navigation is set as default.
-	 *
-	 * @since  1.0.0
+	 * @since 1.0.0
 	 * @access public
-	 * @return void
 	 */
-	public function load_default_menu() {
-		$default = new Register\Menu();
+	public function insert_object( $prop, $object ) {
+		$this->{$prop} = $object;
 	}
 
 	/**
-	 * Loads and Register Sidebar.
+	 * Loads Default and Register Features
 	 *
-	 * When this is registered, Primary Sidebar is set as default.
-	 *
-	 * @since  1.0.0
+	 * @since 1.0.0
 	 * @access public
-	 * @return void
 	 */
-	public function load_default_sidebar() {
-		$default = new Register\Sidebar();
+	public function load_menu() {
+		$this->menu = new Register\Menu();
+		self::get_instance()->insert_object( 'menu', $this->menu );
 	}
 
 	/**
-	 * Loads Global Layouts
+	 * Loads Default and Register Features
+	 *
+	 * @since 1.0.0
+	 * @access public
 	 */
-	public function load_global_layout() {
-		$default = new Register\ThemeLayout();
+	public function load_sidebar() {
+		$this->sidebar = new Register\Sidebar();
+		self::get_instance()->insert_object( 'sidebar', $this->sidebar );
+	}
+
+	/**
+	 * Loads Default and Register Features
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function load_layout() {
+		$this->layout = new Register\ThemeLayout();
+		self::get_instance()->insert_object( 'layout', $this->layout );
 	}
 }
