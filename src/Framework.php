@@ -13,13 +13,12 @@
  */
 namespace Benlumia007\Backdrop;
 
-use Benlumia007\Backdrop\Contracts\Bootable;
 use Benlumia007\Backdrop\Register;
 
 /**
  * Regiser Menu Class
  */
-class Framework implements Bootable {
+class Framework {
 	/**
 	 * Private static instance
 	 *
