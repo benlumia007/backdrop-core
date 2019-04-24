@@ -1,6 +1,6 @@
 <?php // phpcs:ignore
 /**
- * Backdrop Core ( Displayable.php )
+ * Backdrop Core ( Site.php )
  *
  * @package     Backdrop Core
  * @copyright   Copyright (C) 2019. Benjamin Lu
@@ -13,7 +13,7 @@ namespace Benlumia007\Backdrop\Contracts\Interfaces;
 /**
  * Implements Displayable
  */
-interface Entry {
+interface Site {
 	/**
 	 * Displayable
 	 *
