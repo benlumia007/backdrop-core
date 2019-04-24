@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Backdrop Core ( Displayable.php )
  *
@@ -11,14 +11,27 @@
 namespace Benlumia007\Backdrop\Contracts\Site;
 
 use Benlumia007\Backdrop\Contracts\Displayable;
+use Benlumia007\Backdrop\Contracts\Renderable;
 
-class Site implements Displayable {
+/**
+ * Loads Site implements Displayable and Renderable.
+ */
+class Site implements Displayable, Renderable {
 	/**
 	 * Displayable
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @return void
+	 * @param string $args displays.
 	 */
 	public static function display( $args = '' ) {}
+
+	/**
+	 * Displayable
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @param string $args renders.
+	 */
+	public static function render( $args = '' ) {}
 }
