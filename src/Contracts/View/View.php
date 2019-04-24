@@ -15,7 +15,7 @@ use Benlumia007\Backdrop\Contracts\Displayable;
 /**
  * Implements Displayable
  */
-class Entry implements Displayable {
+class View implements Displayable {
 	/**
 	 * Displayable
 	 *
