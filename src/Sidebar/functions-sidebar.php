@@ -13,6 +13,8 @@
  */
 namespace Benlumia007\Backdrop\Sidebar;
 
+use Benlumia007\Backdrop\Framework;
+
 /**
  * Table of Content
  *
@@ -24,15 +26,23 @@ namespace Benlumia007\Backdrop\Sidebar;
  *
  * @param array $sidebar test.
  */
-function display( $sidebar = '' ) { ?>
-	<div id="widget-area" class="widget-area">
-		<?php
-		if ( 'primary' === $sidebar ) {
-			! dynamic_sidebar( 'primary-sidebar' );
-		} elseif ( 'custom' === $sidebar ) {
-			! dynamic_sidebar( 'custom-sidebar' );
+function display( $slug = '', $items = [] ) {
+	foreach( $items as $item ) {
+		switch ( $slug ) {
+			case 'sidebar':
+				dynamic_sidebar( $item );
+				break;
+			case 'menu':
+				echo 'fat';
+				break;
+			case 'global-layouts':
+				echo 'stupid';
+				break; 	
+			default:
+				break;
 		}
-		?>
-	</div>
-	<?php
+	}
 }
+
+
+
