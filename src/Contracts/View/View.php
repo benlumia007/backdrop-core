@@ -10,19 +10,19 @@
 
 namespace Benlumia007\Backdrop\Contracts\View;
 
-use Benlumia007\Backdrop\Contracts\Displayable;
+use Benlumia007\Backdrop\Contracts\Interfaces\View as ViewInterface;
 
 /**
  * Implements Displayable
  */
-class View implements Displayable {
+class View implements ViewInterface {
 	/**
 	 * Displayable
 	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @param string $type outputs type.
-	 * @param array  $items array of items.
+	 * @since        1.0.0
+	 * @access       public
+	 * @param string $type output type menu, loop, and sidebar.
+	 * @param array  $items an array of ids to display.
 	 */
 	public static function display( $type, $items = [] ) {}
 }
