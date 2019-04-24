@@ -21,7 +21,6 @@
 		"files": [
 			"src/Entry/functions-entry.php",
 			"src/MainQuery/functions-loop.php",
-			"src/Site/functions-site.php",
 			"src/View/functions-view.php"
 		]
     },
