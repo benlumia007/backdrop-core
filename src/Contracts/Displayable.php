@@ -17,5 +17,5 @@ namespace Benlumia007\Backdrop\Contracts;
  * Regiser Menu Class
  */
 interface Displayable {
-	public function display( $type, $items = [] );
+	public function display();
 }
