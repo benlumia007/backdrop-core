@@ -15,9 +15,16 @@ namespace Benlumia007\Backdrop\Site;
 
 use Benlumia007\Backdrop\Contracts\Site\Site as SiteContract;
 
+/**
+ * Site extends SiteContract
+ */
 class Site extends SiteContract {
 	/**
-	 * Docs
+	 * Display display( $args = '' );
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @param string $args output site information.
 	 */
 	public static function display( $args = '' ) {
 		if ( 'site-title' === $args ) {
