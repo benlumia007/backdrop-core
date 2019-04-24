@@ -22,8 +22,8 @@
 			"src/Entry/functions-entry.php",
 			"src/MainQuery/functions-loop.php",
 			"src/Menu/functions-menu.php",
-			"src/Sidebar/functions-sidebar.php",
-			"src/Site/functions-site.php"
+			"src/Site/functions-site.php",
+			"src/View/functions-view.php"
 		]
     },
     "require": {
