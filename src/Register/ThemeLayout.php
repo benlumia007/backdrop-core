@@ -12,13 +12,13 @@
  */
 namespace Benlumia007\Backdrop\Register;
 
-use Benlumia007\Backdrop\Customize\CustomizeAbstract;
+use Benlumia007\Backdrop\Contracts\Abstracts\Customize;
 use Benlumia007\Backdrop\Customize\Control\ImageRadio;
 
 /**
  * Regiser class ThemeLayout
  */
-class ThemeLayout extends CustomizeAbstract {
+class ThemeLayout extends Customize {
 	/**
 	 * Loads register_panels
 	 *
@@ -30,7 +30,7 @@ class ThemeLayout extends CustomizeAbstract {
 		$manager->add_panel(
 			'theme_options',
 			[
-				'title'    => esc_html__( 'Theme Options', 'backdrop' ),
+				'title'    => esc_html__( 'Theme Options', 'backdrop-core' ),
 				'priority' => 5,
 			]
 		);
@@ -47,7 +47,7 @@ class ThemeLayout extends CustomizeAbstract {
 		$manager->add_section(
 			'global_layout',
 			[
-				'title'    => esc_html__( 'General Layout', 'backdrop' ),
+				'title'    => esc_html__( 'General Layout', 'backdrop-core' ),
 				'panel'    => 'theme_options',
 				'priority' => 5,
 			]
