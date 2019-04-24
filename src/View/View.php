@@ -104,8 +104,8 @@ function loop_display( $item ) {
 		endwhile;
 			the_post_navigation(
 				array(
-					'next_text' => '<span class="post-next" aria-hiddent="true">' . esc_html__( 'Next', 'backdrop' ) . '</span><span class="post-title">%title</span>',
-					'prev_text' => '<span class="post-previous" aria-hidden="true">' . esc_html__( 'Previous', 'backdrop' ) . '</span><span class="post-title">%title</span>',
+					'next_text' => '<span class="post-next" aria-hiddent="true">' . esc_html__( 'Next', 'backdrop-core' ) . '</span><span class="post-title">%title</span>',
+					'prev_text' => '<span class="post-previous" aria-hidden="true">' . esc_html__( 'Previous', 'backdrop-core' ) . '</span><span class="post-title">%title</span>',
 				)
 			);
 		comments_template();
