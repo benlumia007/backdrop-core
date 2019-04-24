@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Backdrop Core ( Displayable.php )
  *
