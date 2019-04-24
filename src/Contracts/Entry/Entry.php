@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore
 /**
  * Backdrop Core ( Displayable.php )
  *
@@ -12,13 +12,16 @@ namespace Benlumia007\Backdrop\Contracts;
 
 use Benlumia007\Backdrop\Contracts\Displayable;
 
+/**
+ * Implements Displayable
+ */
 class Entry implements Displayable {
-    /**
-     * Displayable
-     *
-     * @since 1.0.0
-     * @access public
-     * @return void
-     */
-    public static function display() {}
+	/**
+	 * Displayable
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public static function display() {}
 }
