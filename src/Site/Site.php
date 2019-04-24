@@ -13,12 +13,12 @@
  */
 namespace Benlumia007\Backdrop\Site;
 
-use Benlumia007\Backdrop\Contracts\Site\Site as SiteContract;
+use Benlumia007\Backdrop\Contracts\Site\Site as SiteContracts;
 
 /**
  * Site extends SiteContract
  */
-class Site extends SiteContract {
+class Site extends SiteContracts {
 	/**
 	 * Display display( $args = '' );
 	 *
