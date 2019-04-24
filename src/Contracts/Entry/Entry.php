@@ -8,7 +8,7 @@
  * @author      Benjamin Lu ( https://benjlu.com )
  */
 
-namespace Benlumia007\Backdrop\Contracts;
+namespace Benlumia007\Backdrop\Contracts\Entry;
 
 use Benlumia007\Backdrop\Contracts\Displayable;
 
