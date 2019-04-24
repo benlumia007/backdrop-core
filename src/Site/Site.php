@@ -131,7 +131,7 @@ class Site extends SiteContract {
 				'em'      => true,
 				'strong'  => true,
 			);
-			return sprintf( '<a href="%s">%s</a>', $theme_name->display( 'ThemeURI' ), wp_kses( $theme_name->display( 'Name' ), $allowed ) );			
+			return sprintf( '<a href="%s">%s</a>', $theme_name->display( 'ThemeURI' ), wp_kses( $theme_name->display( 'Name' ), $allowed ) );
 		}
 	}
 }
