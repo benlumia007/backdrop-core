@@ -10,13 +10,12 @@
 
 namespace Benlumia007\Backdrop\Contracts\Site;
 
-use Benlumia007\Backdrop\Contracts\Displayable;
-use Benlumia007\Backdrop\Contracts\Renderable;
+use Benlumia007\Backdrop\Contracts\Interfaces\Site as SiteInterface;
 
 /**
  * Loads Site implements Displayable and Renderable.
  */
-class Site implements Displayable, Renderable {
+class Site implements SiteInterface {
 	/**
 	 * Displayable
 	 *
