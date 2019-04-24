@@ -19,7 +19,12 @@ use Benlumia007\Backdrop\Contracts\View\View as Displayable;
  */
 class View extends Displayable {
 	/**
-	 * Display menu, loop and sidebar.
+	 * Displayable
+	 *
+	 * @since        1.0.0
+	 * @access       public
+	 * @param string $type output type menu, loop, and sidebar.
+	 * @param array  $items an array of ids to display.
 	 */
 	public static function display( $type, $items = [] ) {
 		foreach ( $items as $item ) {
@@ -86,6 +91,11 @@ function menu_display() {
 	}
 }
 
+/**
+ * LOop Display
+ *
+ * @param string $item display.
+ */
 function loop_display( $item ) {
 	if ( 'content-post-format' === $item ) {
 		if ( have_posts() ) :
@@ -116,7 +126,8 @@ function loop_display( $item ) {
 		endwhile;
 		comments_template();
 	} elseif ( 'content-archive' === $item ) {
-		if ( have_posts() ) : ?>
+		if ( have_posts() ) :
+			?>
 		<header class="archive-header">
 			<h1 class="archive-title"><?php the_archive_title(); ?></h1>
 		</header>
