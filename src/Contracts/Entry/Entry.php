@@ -10,18 +10,18 @@
 
 namespace Benlumia007\Backdrop\Contracts\Entry;
 
-use Benlumia007\Backdrop\Contracts\Displayable;
+use Benlumia007\Backdrop\Contracts\Interfaces\Entry as EntryInterface;
 
 /**
  * Implements Displayable
  */
-class Entry implements Displayable {
+class Entry implements EntryInterface {
 	/**
 	 * Displayable
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @return void
+	 * @param string $args output display.
 	 */
-	public static function display() {}
+	public static function display( $args = '' ) {}
 }
