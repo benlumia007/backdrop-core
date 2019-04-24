@@ -13,11 +13,11 @@
  */
 namespace Benlumia007\Backdrop\Entry;
 
-use Benlumia007\Backdrop\Contracts\Entry\Entry as EntryContracts;
+use Benlumia007\Backdrop\Contracts\Entry\Entry as Displayable;
 /**
  * Site extends SiteContract
  */
-class Entry extends EntryContracts {
+class Entry extends Displayable {
 	/**
 	 * Display display( $args = '' );
 	 *

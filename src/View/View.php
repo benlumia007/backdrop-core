@@ -13,11 +13,11 @@
  */
 namespace Benlumia007\Backdrop\View;
 
-use Benlumia007\Backdrop\Contracts\View\View as ViewContracts;
+use Benlumia007\Backdrop\Contracts\View\View as Displayable;
 /**
  * Site extends SiteContract
  */
-class View extends ViewContracts {
+class View extends Displayable {
 	/**
 	 * Display menu, loop and sidebar.
 	 */
@@ -31,7 +31,7 @@ class View extends ViewContracts {
 					menu_display();
 					break;
 				case 'loop':
-					loop_display();
+					loop_display( $item );
 					break;
 				default:
 					break;
@@ -86,8 +86,8 @@ function menu_display() {
 	}
 }
 
-function loop_display() {
-	if ( 'content-post-format' === $content ) {
+function loop_display( $item ) {
+	if ( 'content-post-format' === $item ) {
 		if ( have_posts() ) :
 			while ( have_posts() ) :
 				the_post();
@@ -97,7 +97,7 @@ function loop_display() {
 		else :
 			get_template_part( 'views/content/content', 'none' );
 	endif;
-	} elseif ( 'content-single' === $content ) {
+	} elseif ( 'content-single' === $item ) {
 		while ( have_posts() ) :
 			the_post();
 				get_template_part( 'views/content/content', 'single' );
@@ -109,13 +109,13 @@ function loop_display() {
 				)
 			);
 		comments_template();
-	} elseif ( 'content-page' === $content ) {
+	} elseif ( 'content-page' === $item ) {
 		while ( have_posts() ) :
 			the_post();
 				get_template_part( 'views/content/content', 'page' );
 		endwhile;
 		comments_template();
-	} elseif ( 'content-archive' === $content ) {
+	} elseif ( 'content-archive' === $item ) {
 		if ( have_posts() ) : ?>
 		<header class="archive-header">
 			<h1 class="archive-title"><?php the_archive_title(); ?></h1>
