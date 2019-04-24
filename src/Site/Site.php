@@ -79,6 +79,61 @@ class Site extends SiteContract {
 			return apply_filters( 'backdrop_site_description', $html );
 		}
 	}
+
+	/**
+	 * Renders display
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @param string $args output site information.
+	 */
+	public static function render( $args = '' ) {
+		if ( 'site-link' === $args ) {
+			$args = wp_parse_args(
+				$args,
+				[
+					'text'   => '%s',
+					'class'  => 'site-link',
+					'before' => '',
+					'after'  => '',
+				]
+			);
+			$html = sprintf(
+				'<a class="%1$s" href="%2$s">%3$s</a>',
+				esc_attr( $args['class'] ),
+				esc_url( home_url( '/' ) ),
+				sprintf( $args['text'], get_bloginfo( 'name' ) )
+			);
+			return apply_filters( 'backdrop_site_link', $html );
+		} elseif ( 'wp-link' === $args ) {
+			$args = wp_parse_args(
+				$args,
+				[
+					'text'   => '%s',
+					'class'  => 'wp-link',
+					'before' => '',
+					'after'  => '',
+				]
+			);
+			$html = sprintf(
+				'<a class="%1$s" href="%2$s">%3$s</a>',
+				esc_attr( $args['class'] ),
+				esc_url( __( 'https://wordpress.org', 'backdrop-core' ) ),
+				sprintf( $args['text'], esc_html__( 'WordPress', 'backdrop-core' ) )
+			);
+			return apply_filters( 'backdrop_wp_link', $html );
+		} elseif ( 'theme-link' === $args ) {
+			$theme_name = wp_get_theme( get_template() );
+			$allowed    = array(
+				'abbr'    => array( 'title' => true ),
+				'acronym' => array( 'title' => true ),
+				'code'    => true,
+				'em'      => true,
+				'strong'  => true,
+			);
+			return sprintf( '<a href="%s">%s</a>', $theme_name->display( 'ThemeURI' ), wp_kses( $theme_name->display( 'Name' ), $allowed ) );			
+		}
+	}
 }
 
 /**
