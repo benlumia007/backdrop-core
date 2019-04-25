@@ -47,6 +47,7 @@ class Entry extends Displayable {
 				$author, //phpcs:ignore
 				$date //phpcs:ignore
 			);
+			
 			if ( ! is_page() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 				echo '</i><i class="fas fa-comment"></i><span class="entry-comments">';
 					comments_popup_link( sprintf( esc_html__( '0 Comments', 'backdrop-core' ) ) );
