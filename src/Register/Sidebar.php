@@ -43,8 +43,8 @@ class Sidebar {
 	public function default_sidebar() {
 		return array(
 			'primary' => array(
-				'name' => esc_html__( 'Primary Sidebar', 'backdrop' ),
-				'desc' => esc_html__( 'All widgets will be on all of the pages and posts.', 'backdrop' ),
+				'name' => esc_html__( 'Primary Sidebar', 'backdrop-core' ),
+				'desc' => esc_html__( 'All widgets will be on all of the pages and posts.', 'backdrop-core' ),
 			),
 		);
 	}

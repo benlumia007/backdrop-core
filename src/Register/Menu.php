@@ -42,8 +42,8 @@ class Menu {
 	 */
 	public function default_menus() {
 		return array(
-			'primary' => esc_html__( 'Primary Navigation', 'backdrop' ),
-			'social'  => esc_html__( 'Social Navigation', 'backdrop' ),
+			'primary' => esc_html__( 'Primary Navigation', 'backdrop-core' ),
+			'social'  => esc_html__( 'Social Navigation', 'backdrop-core' ),
 		);
 	}
 
@@ -89,8 +89,8 @@ class Menu {
 			'backdrop-navigation',
 			'backdropScreenReaderText',
 			array(
-				'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'backdrop' ) . '</span>',
-				'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'backdrop' ) . '</span>',
+				'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'backdrop-core' ) . '</span>',
+				'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'backdrop-core' ) . '</span>',
 			)
 		);
 	}
