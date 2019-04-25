@@ -99,8 +99,7 @@ function menu_display() {
 function loop_display( $item ) {
 	if ( 'content-post-format' === $item ) {
 		if ( have_posts() ) :
-			while ( have_posts() ) :
-				the_post();
+			while ( have_posts() ) : the_post();
 					get_template_part( 'views/content/content', get_post_format() );
 		endwhile;
 			the_posts_pagination();
@@ -108,8 +107,7 @@ function loop_display( $item ) {
 			get_template_part( 'views/content/content', 'none' );
 	endif;
 	} elseif ( 'content-single' === $item ) {
-		while ( have_posts() ) :
-			the_post();
+		while ( have_posts() ) : the_post();
 				get_template_part( 'views/content/content', 'single' );
 		endwhile;
 			the_post_navigation(
@@ -120,8 +118,7 @@ function loop_display( $item ) {
 			);
 		comments_template();
 	} elseif ( 'content-page' === $item ) {
-		while ( have_posts() ) :
-			the_post();
+		while ( have_posts() ) : the_post();
 				get_template_part( 'views/content/content', 'page' );
 		endwhile;
 		comments_template();
@@ -132,8 +129,7 @@ function loop_display( $item ) {
 			<h1 class="archive-title"><?php the_archive_title(); ?></h1>
 		</header>
 			<?php
-			while ( have_posts() ) :
-				the_post();
+			while ( have_posts() ) : the_post();
 				get_template_part( 'views/content/content', get_post_format() );
 		endwhile;
 			the_posts_pagination();
