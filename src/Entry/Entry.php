@@ -43,12 +43,12 @@ class Entry extends Displayable {
 				get_the_author()
 			);
 			printf(
-				'<i class="fas fa-user"></i><span class="by-author">%1$s</span><i class="fas fa-circle"></i><i class="fas fa-calendar-alt"></i><span class="published">%2$s</span>',
+				'<i class="fas fa-user"></i><span class="by-author">%1$s</span><i class="fas fa-calendar-alt"></i><span class="published">%2$s</span>',
 				$author, //phpcs:ignore
 				$date //phpcs:ignore
 			);
 			if ( ! is_page() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-				echo '<i class="fas fa-circle"></i><i class="fas fa-comment"></i><span class="entry-comments">';
+				echo '</i><i class="fas fa-comment"></i><span class="entry-comments">';
 					comments_popup_link( sprintf( esc_html__( '0 Comments', 'backdrop-core' ) ) );
 				echo '</span>';
 			}
