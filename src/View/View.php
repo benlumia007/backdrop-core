@@ -35,9 +35,6 @@ class View extends Displayable {
 				case 'menu':
 					menu_display();
 					break;
-				case 'loop':
-					loop_display( $item );
-					break;
 				default:
 					break;
 			}
@@ -88,53 +85,5 @@ function menu_display() {
 			?>
 		</nav>
 		<?php
-	}
-}
-
-/**
- * LOop Display
- *
- * @param string $item display.
- */
-function loop_display( $item ) {
-	if ( 'content-post-format' === $item ) {
-		if ( have_posts() ) :
-			while ( have_posts() ) : the_post();
-					get_template_part( 'views/content/content', get_post_format() );
-		endwhile;
-			the_posts_pagination();
-		else :
-			get_template_part( 'views/content/content', 'none' );
-	endif;
-	} elseif ( 'content-single' === $item ) {
-		while ( have_posts() ) : the_post();
-				get_template_part( 'views/content/content', 'single' );
-		endwhile;
-			the_post_navigation(
-				array(
-					'next_text' => '<span class="post-next" aria-hiddent="true">' . esc_html__( 'Next', 'backdrop-core' ) . '</span><span class="post-title">%title</span>',
-					'prev_text' => '<span class="post-previous" aria-hidden="true">' . esc_html__( 'Previous', 'backdrop-core' ) . '</span><span class="post-title">%title</span>',
-				)
-			);
-		comments_template();
-	} elseif ( 'content-page' === $item ) {
-		while ( have_posts() ) : the_post();
-				get_template_part( 'views/content/content', 'page' );
-		endwhile;
-		comments_template();
-	} elseif ( 'content-archive' === $item ) {
-		if ( have_posts() ) :
-			?>
-		<header class="archive-header">
-			<h1 class="archive-title"><?php the_archive_title(); ?></h1>
-		</header>
-			<?php
-			while ( have_posts() ) : the_post();
-				get_template_part( 'views/content/content', get_post_format() );
-		endwhile;
-			the_posts_pagination();
-		else :
-			get_template_part( 'views/content/content', 'none' );
-		endif;
 	}
 }
