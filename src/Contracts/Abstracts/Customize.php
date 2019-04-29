@@ -1,6 +1,6 @@
 <?php // phpcs:ignore
 /**
- * Backdrop Core ( framework.php )
+ * Backdrop Core ( Customize.php )
  *
  * @package     Backdrop Core
  * @copyright   Copyright (C) 2019. Benjamin Lu
