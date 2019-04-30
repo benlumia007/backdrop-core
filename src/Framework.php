@@ -30,7 +30,6 @@ class Framework {
 	 * Private Constructor
 	 */
 	private function __construct() {
-		$this->theme_setup();
 		$this->load_menu();
 		$this->load_sidebar();
 		$this->load_layout();
