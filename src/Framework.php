@@ -30,10 +30,6 @@ class Framework {
 	 * Private Constructor
 	 */
 	private function __construct() {
-		$this->load_menu();
-		$this->load_sidebar();
-		$this->load_layout();
-		$this->load_admin_page();
 		$this->boot();
 	}
 
@@ -56,6 +52,10 @@ class Framework {
 	public function boot() {
 		self::$instance = $this;
 		$this->theme_setup();
+		$this->load_menu();
+		$this->load_sidebar();
+		$this->load_layout();
+		$this->load_admin_page();
 	}
 
 	/**
