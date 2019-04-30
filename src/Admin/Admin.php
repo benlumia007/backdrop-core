@@ -26,6 +26,7 @@ class Admin extends AdminPage {
 	public function __construct() {
 		$this->theme_info = wp_get_theme();
 		add_action( 'admin_menu', array( $this, 'menu' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue' ), true, '1.0.0' );
 	}
 	/**
 	 * Register Menu
@@ -38,7 +39,6 @@ class Admin extends AdminPage {
 	 * Render Menu
 	 */
 	public function callback() {
-
 		echo '<h1 class="admin-title">' . $this->theme_info->name . '</h1>';
 		$this->pages();
 	}
@@ -54,7 +54,7 @@ class Admin extends AdminPage {
 		echo '<h2 class="tabs">';
 			foreach ( $tabs as $tab => $name ) {
 				$class = ( $tab === $current ) ? ' nav-tab-active' : '';
-				echo "<a class='nav-tab$class' href='?page=theme_page&tab=$tab&_wp_nonce=$admin_nonce'>$name</a>"; // XSS OK.
+				echo "<a class='nav-tab $class' href='?page=theme_page&tab=$tab&_wp_nonce=$admin_nonce'>$name</a>"; // XSS OK.
 			}
 		echo '</h2>';
 	}
@@ -88,13 +88,22 @@ class Admin extends AdminPage {
 		echo '</div>';
 	}
 
-	public function introduction() {
-		echo '<h2 class="admin-title">' . esc_html__( 'Introduction', 'backdrop-core' ) . '</h2>';
-
-
-	}
+	public function introduction() { ?>
+		<h2 class="admin-title"><?php esc_html_e( 'Theme Info', 'backdrop-core' ); ?></h2>
+		<ul>
+			<li><?php echo esc_html( __('Theme Name: ', 'backdrop-core' ) . $this->theme_info->name ); ?></li>
+			<li><?php echo esc_html( __('Theme Version: ', 'backdrop-core' ) . $this->theme_info->version ); ?></li>
+		</ul>
+		<h2 class="admin-title"><?php esc_html_e( 'Welcome', 'backdrop-core' ); ?></h2>
+		<?php esc_html_e( 'Hope you are enjoying the theme. ', 'backdrop-core' ); ?>
+	<?php }
 	
 	public function installation() {
 		echo '<h2 class="admin-title">' . esc_html__( 'Installation', 'backdrop-core' ) . '</h2>';
+	}
+
+	public function admin_enqueue() {
+		wp_register_style( 'admin-style', get_theme_file_uri() . '/vendor/benlumia007/backdrop-core/assets/css/admin-styles', array(), '1.0.0' );
+		wp_enqueue_style( 'admin-style' );
 	}
 }
