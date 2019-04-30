@@ -40,7 +40,7 @@ class Admin extends AdminPage {
 	public function callback() {
 
 		echo '<h1 class="admin-title">' . $this->theme_info->name . '</h1>';
-		$this->tabs();
+		$this->pages();
 	}
 
 	public function tabs( $current = 'introduction' ) {
@@ -53,17 +53,36 @@ class Admin extends AdminPage {
 
 		echo '<h2 class="tabs">';
 			foreach ( $tabs as $tab => $name ) {
-				$class = ( $tab === $current ) ? 'active' : '';
-				echo "<a class='nav-tab $class' href='?page=theme_page&tab=$tab&_wp_nonce=$admin_nonce'>$name</a>"; // XSS OK.
+				$class = ( $tab === $current ) ? ' nav-tab-active' : '';
+				echo "<a class='nav-tab$class' href='?page=theme_page&tab=$tab&_wp_nonce=$admin_nonce'>$name</a>"; // XSS OK.
 			}
 		echo '</h2>';
+	}
 
-		echo '<div class="admin-content">';
-		if ( isset( $_GET['tab'] ) && isset( $_GET['_wp_nonce'] ) && false !== wp_verify_nonce( $_GET['_wp_nonce'], 'admin_nonce' ) ) {
-			if ( $current === $_GET['tab'] ) {
-				$this->introduction();
-			} elseif ( $_GET['tab'] === $tab ) {
-				$this->installation();
+	public function pages() {
+		global $pagenow;
+
+		if ( isset( $_GET['tab'] ) && isset( $_GET['_wp_nonce'] ) && false !== wp_verify_nonce( $_GET['_wp_nonce'], 'admin_nonce' ) ) {// WPCS: input var ok.
+			$this->tabs( esc_html( wp_unslash( $_GET['tab'] ) ) ); // WPCS: input var ok, sanitization ok.
+		} else {
+			$this->tabs( 'introduction' );
+		}
+		echo '<div class="tabs-content">';
+
+		if ( 'themes.php' === $pagenow && 'theme_page' === sanitize_text_field( wp_unslash( $_GET['page'] ) ) ) { // WPCS: input var ok.
+			if ( isset( $_GET['tab'] ) && isset( $_GET['_wp_nonce'] ) && false !== wp_verify_nonce( $_GET['_wp_nonce'], 'admin_nonce' ) ) { // WPCS: input var ok, sanitization ok.
+				$this->tab = esc_html( wp_unslash( $_GET['tab'] ) ); // WPCS: input var ok, sanitization ok.
+			} else {
+				$this->tab = 'introduction';
+			}
+
+			switch ( $this->tab ) {
+				case 'introduction':
+					$this->introduction();
+					break;
+				case 'installation':
+					$this->installation();
+					break;
 			}
 		}
 		echo '</div>';
