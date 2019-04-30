@@ -31,4 +31,6 @@ class Admin implements AdminInterface {
 	public function callback() {}
 
 	public function tabs() {}
+
+	public function pages() {}
 }
