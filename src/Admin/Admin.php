@@ -46,7 +46,6 @@ class Admin extends AdminPage {
 	public function tabs( $current = 'introduction' ) {
 		$tabs = array(
 			'introduction' => esc_html__( 'Introduction', 'backdrop-core' ),
-			'installation' => esc_html__( 'Installation', 'backdrop-core'),
 		);
 
 		$admin_nonce = wp_create_nonce( 'admin_nonce' );
@@ -80,9 +79,6 @@ class Admin extends AdminPage {
 				case 'introduction':
 					$this->introduction();
 					break;
-				case 'installation':
-					$this->installation();
-					break;
 			}
 		}
 		echo '</div>';
@@ -96,11 +92,12 @@ class Admin extends AdminPage {
 		</ul>
 		<h2 class="admin-title"><?php esc_html_e( 'Welcome', 'backdrop-core' ); ?></h2>
 		<?php esc_html_e( 'Hope you are enjoying the theme. ', 'backdrop-core' ); ?>
+		<h2 class="admin-title"><?php esc_html_e( 'Recommended Plugins', 'backdrop-core' ); ?></h2>
+		<ul>
+			<li><a href="<?php esc_url( 'https://wordpress.org/plugins/jetpack' ); ?>"><?php esc_html_e( 'Jetpack by WordPress.com', 'backdrop-core' ); ?></a></li>
+			<li><a href="<?php esc_url( 'https://wordpress.org/plugins/regenerate-thumbnails' ); ?>"><?php esc_html_e( 'Regenerate Thumbnails', 'backdrop-core' ); ?></a></li>
+		</ul>
 	<?php }
-	
-	public function installation() {
-		echo '<h2 class="admin-title">' . esc_html__( 'Installation', 'backdrop-core' ) . '</h2>';
-	}
 
 	public function admin_enqueue() {
 		wp_register_style( 'admin-style', get_theme_file_uri() . '/vendor/benlumia007/backdrop-core/assets/css/admin-styles', array(), '1.0.0' );
