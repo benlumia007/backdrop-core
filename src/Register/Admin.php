@@ -8,7 +8,7 @@
  * @author      Benjamin Lu ( https://benjlu.com )
  */
 
-namespace Benlumia007\Backdrop\Admin;
+namespace Benlumia007\Backdrop\Register;
 
 use Benlumia007\Backdrop\Contracts\Admin\Admin as AdminPage;
 
