@@ -32,7 +32,7 @@ class Admin extends AdminPage {
 	 * Register Menu
 	 */
 	public function menu() {
-		add_theme_page( $this->theme_info->name, $this->theme_info->name, 'manage_options', 'theme_page', array( $this, 'callback') );
+		add_theme_page( $this->theme_info->name, $this->theme_info->name, 'manage_options', 'theme-page', array( $this, 'callback') );
 	}
 
 	/**
@@ -53,7 +53,7 @@ class Admin extends AdminPage {
 		echo '<h2 class="tabs">';
 			foreach ( $tabs as $tab => $name ) {
 				$class = ( $tab === $current ) ? ' nav-tab-active' : '';
-				echo "<a class='nav-tab $class' href='?page=theme_page&tab=$tab&_wp_nonce=$admin_nonce'>$name</a>"; // XSS OK.
+				echo "<a class='nav-tab $class' href='?page=theme-page&tab=$tab&_wp_nonce=$admin_nonce'>$name</a>"; // XSS OK.
 			}
 		echo '</h2>';
 	}
@@ -68,7 +68,7 @@ class Admin extends AdminPage {
 		}
 		echo '<div class="tabs-content">';
 
-		if ( 'themes.php' === $pagenow && 'theme_page' === sanitize_text_field( wp_unslash( $_GET['page'] ) ) ) { // WPCS: input var ok.
+		if ( 'themes.php' === $pagenow && 'theme-page' === sanitize_text_field( wp_unslash( $_GET['page'] ) ) ) { // WPCS: input var ok.
 			if ( isset( $_GET['tab'] ) && isset( $_GET['_wp_nonce'] ) && false !== wp_verify_nonce( $_GET['_wp_nonce'], 'admin_nonce' ) ) { // WPCS: input var ok, sanitization ok.
 				$this->tab = esc_html( wp_unslash( $_GET['tab'] ) ); // WPCS: input var ok, sanitization ok.
 			} else {
