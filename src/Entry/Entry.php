@@ -52,13 +52,8 @@ class Entry extends Displayable {
 				echo '</span>';
 			}
 		} elseif ( 'entry-title' === $args ) {
-			if ( is_404() ) { ?>
-				<h1 class="entry-title"><?php esc_html_e( 'Whoa! You broke something', 'backdrop-core' ); ?></h1>
-				<?php
-			} elseif ( is_search() ) {
-				?>
-				<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'backdrop-core' ); ?></h1>
-				<?php
+			if ( is_404() ) {
+				printf( '<h1 class="entry-title">%s</h1>', esc_html__( 'Whoa! You broke something!', 'backdrop-core' ) );
 			} elseif ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			} elseif ( is_front_page() && is_home() ) {
