@@ -28,9 +28,7 @@ class Entry extends Displayable {
 	public static function display( $args = '' ) {
 		if ( 'posted-on' === $args ) {
 			$date   = sprintf(
-				'<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
-				esc_url( get_permalink() ),
-				esc_attr( get_the_time() ),
+				'<span class="entry-date">%1$s</span>',
 				get_the_date( get_option( 'date_format' ) )
 			);
 			$author = sprintf(
