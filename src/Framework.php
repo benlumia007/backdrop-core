@@ -35,7 +35,6 @@ class Framework {
 		$this->load_menu();
 		$this->load_sidebar();
 		$this->load_layout();
-		$this->load_admin_page();
 	}
 
 	/**
@@ -123,10 +122,6 @@ class Framework {
 	 */
 	public function load_layout() {
 		$this->layout = new Register\ThemeLayout();
-	}
-
-	public function load_admin_page() {
-		$this->admin_page = new Register\Admin();
 	}
 }
 
