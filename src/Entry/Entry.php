@@ -48,7 +48,7 @@ class Entry extends Displayable {
 			
 			if ( ! is_page() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 				echo '</i><i class="fas fa-comment"></i><span class="entry-comments">';
-					comments_popup_link( sprintf( esc_html__( '0 Comments', 'backdrop-core' ) ) );
+					comments_popup_link( sprintf( esc_html__( 'No Comments', 'backdrop-core' ) ) );
 				echo '</span>';
 			}
 		} elseif ( 'entry-title' === $args ) {
