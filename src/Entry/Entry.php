@@ -29,7 +29,8 @@ class Entry extends Displayable {
 		if ( 'posted-on' === $args ) {
 			$date = sprintf( '<span class="entry-date">%1$s</span>', get_the_date( get_option( 'date_format' ) ) );
 
-			$author = sprintf( '<a href="%1$s">%3$s</a>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), get_the_author() );
+			$author = sprintf( '<a href="%1$s">%2$s</a>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), get_the_author() );
+
 			printf(
 				'<i class="fas fa-user"></i><span class="by-author">%1$s</span><i class="fas fa-calendar-alt"></i><span class="published">%2$s</span>',
 				$author, //phpcs:ignore
@@ -48,6 +49,8 @@ class Entry extends Displayable {
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			} elseif ( is_front_page() && is_home() ) {
 				the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
+			} elseif ( is_post_type_archive() ) {
+				post_type_archive_title( '', false );
 			} else {
 				the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
 			}
