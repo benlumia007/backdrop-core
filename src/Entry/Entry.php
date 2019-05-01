@@ -27,19 +27,9 @@ class Entry extends Displayable {
 	 */
 	public static function display( $args = '' ) {
 		if ( 'posted-on' === $args ) {
-			$date   = sprintf(
-				'<span class="entry-date">%1$s</span>',
-				get_the_date( get_option( 'date_format' ) )
-			);
-			$author = sprintf(
-				'<a href="%1$s" title="%2$s">%3$s</a>',
-				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-				esc_attr(
-					// Translators: 1 = get the author.
-					sprintf( __( 'View all posts by %s', 'backdrop-core' ), get_the_author() )
-				),
-				get_the_author()
-			);
+			$date = sprintf( '<span class="entry-date">%1$s</span>', get_the_date( get_option( 'date_format' ) ) );
+
+			$author = sprintf( '<a href="%1$s">%3$s</a>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), get_the_author() );
 			printf(
 				'<i class="fas fa-user"></i><span class="by-author">%1$s</span><i class="fas fa-calendar-alt"></i><span class="published">%2$s</span>',
 				$author, //phpcs:ignore
@@ -47,7 +37,7 @@ class Entry extends Displayable {
 			);
 			
 			if ( ! is_page() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-				echo '</i><i class="fas fa-comment"></i><span class="entry-comments">';
+				echo '<i class="fas fa-comment"></i><span class="entry-comments">';
 					comments_popup_link( sprintf( esc_html__( 'No Comments', 'backdrop-core' ) ) );
 				echo '</span>';
 			}
@@ -71,6 +61,7 @@ class Entry extends Displayable {
 					$cat_list // phpcs:ignore
 				);
 			}
+			
 			if ( $tag_list ) {
 				printf(
 					'<div class="tag-link"><i class="fas fa-tags"></i> %1$s <span class="tag-list"><b><i>%2$s</i></b></span></div>',
