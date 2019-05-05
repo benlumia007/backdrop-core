@@ -50,7 +50,7 @@ class Entry extends Displayable {
 			} elseif ( is_front_page() && is_home() ) {
 				the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
 			} elseif ( is_post_type_archive() ) {
-				post_type_archive_title( '', false );
+				printf( '<h1 class="entry-title">%s</h1>', post_type_archive_title( '', false ) );
 			} else {
 				the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
 			}
