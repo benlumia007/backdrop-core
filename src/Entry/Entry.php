@@ -45,7 +45,7 @@ class Entry extends Displayable {
 		} elseif ( 'entry-title' === $args ) {
 			if ( is_404() ) {
 				printf( '<h1 class="entry-title">%s</h1>', esc_html__( 'Whoa! You broke something!', 'backdrop-core' ) );
-			} elseif ( is_single() ) {
+			} elseif ( is_single() || is_page() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			} elseif ( is_front_page() && is_home() ) {
 				the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
