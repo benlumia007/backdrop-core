@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.2 - TBD
+## 1.0.2 - May 6, 2019
 - add h1 heading to post_type_archive_title ( 'entry-title' )
 - add is_page() to entry-title when is in page template
 
