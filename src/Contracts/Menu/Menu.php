@@ -31,3 +31,5 @@ interface Menu extends Bootable, Register {
 	public function create();
 
 }
+
+
