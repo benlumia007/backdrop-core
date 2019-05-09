@@ -1,8 +1,7 @@
 # Changelog
 
 ## 1.0.3 - TBD
-- Add New Class ( `Benlumia007\Backdrop\Contracts\Bootable` )
-- Add New Class ( `Benlumia007\Backdrop\Contracts\Register` )
+- Add New Class ( `Benlumia007\Backdrop\Contracts\Bootable ` )
 
 ## 1.0.2 - May 6, 2019
 - add h1 heading to post_type_archive_title ( 'entry-title' )
