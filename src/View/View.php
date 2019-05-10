@@ -13,11 +13,11 @@
  */
 namespace Benlumia007\Backdrop\View;
 
-use Benlumia007\Backdrop\Contracts\View\View as Displayable;
+use Benlumia007\Backdrop\Contracts\Viewable;
 /**
  * Site extends SiteContract
  */
-class View extends Displayable {
+class View implements Viewable {
 	/**
 	 * Displayable
 	 *
