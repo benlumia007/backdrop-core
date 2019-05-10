@@ -1,6 +1,8 @@
 # Changelog
 
 ## 1.0.3 - TBD
+- removed/deleted `src/Contracts/Interfaces/Admin.php`
+- changed `src/Contracts/Admin/Admin.php` to abstract
 - removed/deleted `src/Contracts/Abstracts/Customize.php`
 - added `src/Contracts/Customize/Customize.php`
 - updated `/src/Framework`
