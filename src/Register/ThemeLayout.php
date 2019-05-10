@@ -12,7 +12,7 @@
  */
 namespace Benlumia007\Backdrop\Register;
 
-use Benlumia007\Backdrop\Contracts\Abstracts\Customize;
+use Benlumia007\Backdrop\Contracts\Customize\Customize;
 use Benlumia007\Backdrop\Customize\Control\ImageRadio;
 
 /**
