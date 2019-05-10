@@ -8,13 +8,16 @@
 - updated `/src/Framework`
 - deleted the following items
 <pre>
-	deleted:    src/Contracts/Entry/Entry.php
-	deleted:    src/Contracts/Interfaces/Entry.php
-	deleted:    src/Contracts/Interfaces/Site.php
-	deleted:    src/Contracts/Interfaces/View.php
-	deleted:    src/Contracts/Site/Site.php
-	deleted:    src/Contracts/View/View.php
+deleted:    src/Contracts/Entry/Entry.php
+deleted:    src/Contracts/Interfaces/Entry.php
+deleted:    src/Contracts/Interfaces/Site.php
+deleted:    src/Contracts/Interfaces/View.php
+deleted:    src/Contracts/Site/Site.php
+deleted:    src/Contracts/View/View.php
 </pre>
+- Added comments to the Admin.php
+- Added Displayable, Renderable, and Viewable
+
 
 ## 1.0.2 - May 6, 2019
 - add h1 heading to post_type_archive_title ( 'entry-title' )
