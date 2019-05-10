@@ -1,4 +1,4 @@
-<?php // phpcs:ignore
+<?php
 /**
  * Backdrop Core ( Admin.php )
  *
@@ -10,16 +10,15 @@
 
 namespace Benlumia007\Backdrop\Contracts\Admin;
 
-use Benlumia007\Backdrop\Contracts\Interfaces\Admin as AdminInterface;
-
 /**
- * Implements Displayable
+ * Admin
  */
-class Admin implements AdminInterface {
+abstract class Admin {
 	/**
 	 * Construct
 	 */
 	public function __construct() {}
+
 	/**
 	 * Register Menu
 	 */
