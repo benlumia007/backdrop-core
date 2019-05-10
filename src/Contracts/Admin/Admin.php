@@ -20,16 +20,22 @@ abstract class Admin {
 	public function __construct() {}
 
 	/**
-	 * Register Menu
+	 * menu()
 	 */
 	public function menu() {}
 
 	/**
-	 * Render Menu
+	 * callback()
 	 */
 	public function callback() {}
 
+	/**
+	 * tabs()
+	 */
 	public function tabs() {}
 
+	/**
+	 * pages()
+	 */
 	public function pages() {}
 }
