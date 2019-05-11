@@ -17,6 +17,7 @@ deleted:    src/Contracts/View/View.php
 </pre>
 - Added comments to the Admin.php
 - Added Displayable, Renderable, and Viewable
+- Updated `src/Site/Site`, `src/Entry/Entry`, and `src/View/View`
 
 
 ## 1.0.2 - May 6, 2019
