@@ -18,6 +18,8 @@ deleted:    src/Contracts/View/View.php
 - Added comments to the Admin.php
 - Added Displayable, Renderable, and Viewable
 - Updated `src/Site/Site`, `src/Entry/Entry`, and `src/View/View`
+- moved `src/Register/Menu.php` to `src/Menu/Menu.php`
+- moved `src/Register/Sidebar.php` to `src/Sidebar/Sidebar.php`
 
 
 ## 1.0.2 - May 6, 2019
