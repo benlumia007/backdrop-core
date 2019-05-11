@@ -13,7 +13,6 @@
  */
 namespace Benlumia007\Backdrop;
 
-use Benlumia007\Backdrop\Register;
 use Benlumia007\Backdrop\Menu;
 use Benlumia007\Backdrop\Sidebar;
 
@@ -36,7 +35,6 @@ class Framework {
 		$this->theme_setup();
 		$this->load_menu();
 		$this->load_sidebar();
-		$this->load_layout();
 	}
 
 	/**
@@ -114,16 +112,6 @@ class Framework {
 	 */
 	public function load_sidebar() {
 		$this->sidebar = new Sidebar\Sidebar();
-	}
-
-	/**
-	 * Loads Default and Register Features
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function load_layout() {
-		$this->layout = new Register\ThemeLayout();
 	}
 }
 
