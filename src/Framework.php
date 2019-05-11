@@ -14,6 +14,8 @@
 namespace Benlumia007\Backdrop;
 
 use Benlumia007\Backdrop\Register;
+use Benlumia007\Backdrop\Menu;
+use Benlumia007\Backdrop\Sidebar;
 
 /**
  * Regiser Menu Class
@@ -101,7 +103,7 @@ class Framework {
 	 * @access public
 	 */
 	public function load_menu() {
-		$this->menu = new Register\Menu();
+		$this->menu = new Menu\Menu();
 	}
 
 	/**
@@ -111,7 +113,7 @@ class Framework {
 	 * @access public
 	 */
 	public function load_sidebar() {
-		$this->sidebar = new Register\Sidebar();
+		$this->sidebar = new Sidebar\Sidebar();
 	}
 
 	/**
