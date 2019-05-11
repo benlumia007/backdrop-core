@@ -20,6 +20,10 @@ deleted:    src/Contracts/View/View.php
 - Updated `src/Site/Site`, `src/Entry/Entry`, and `src/View/View`
 - moved `src/Register/Menu.php` to `src/Menu/Menu.php`
 - moved `src/Register/Sidebar.php` to `src/Sidebar/Sidebar.php`
+- moved `src/Customize/Control/ImageRadio.php` to starter theme
+- delete `src/Register/ThemeLayout and move to starter theme
+- edit `src/Framework` for layouts
+
 
 
 ## 1.0.2 - May 6, 2019
