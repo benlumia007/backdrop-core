@@ -23,7 +23,14 @@ deleted:    src/Contracts/View/View.php
 - moved `src/Customize/Control/ImageRadio.php` to starter theme
 - delete `src/Register/ThemeLayout and move to starter theme
 - edit `src/Framework` for layouts
-
+- move assets for layouts to themes
+<pre>
+deleted:    assets/css/image-radio.css
+deleted:    assets/images/1col.png
+deleted:    assets/images/2cl.png
+deleted:    assets/images/2cr.png
+deleted:    assets/js/image-radio.js
+</pre>
 
 
 ## 1.0.2 - May 6, 2019
