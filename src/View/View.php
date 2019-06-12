@@ -33,7 +33,7 @@ class View implements Viewable {
 					dynamic_sidebar( $item );
 					break;
 				case 'menu':
-					menu_display();
+					menu_display( $item );
 					break;
 				default:
 					break;
