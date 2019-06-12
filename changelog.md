@@ -1,6 +1,7 @@
 # Changelog
 
-## 1.0.4 - TBD
+## 1.0.4 - June 12, 2019
+- menu_display(); fixed
 
 ## 1.0.3 - May 11, 2019
 - removed/deleted `src/Contracts/Interfaces/Admin.php`
