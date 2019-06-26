@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.5 - TDB
+- add widget-area class to dyanmic_sidebar( $item )
+
 ## 1.0.4 - June 12, 2019
 - menu_display(); fixed
 
