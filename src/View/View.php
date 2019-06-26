@@ -29,8 +29,11 @@ class View implements Viewable {
 	public static function display( $type, $items = [] ) {
 		foreach ( $items as $item ) {
 			switch ( $type ) {
-				case 'sidebar':
-					dynamic_sidebar( $item );
+				case 'sidebar': ?>
+					<div id="aside" class="widget-area">
+						<?php dynamic_sidebar( $item ); ?>
+					</div>
+					<?php
 					break;
 				case 'menu':
 					menu_display( $item );
