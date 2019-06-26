@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.5 - TDB
+## 1.0.5 - June 26, 2019
 - add widget-area class to dyanmic_sidebar( $item )
 
 ## 1.0.4 - June 12, 2019
