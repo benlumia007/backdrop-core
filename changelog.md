@@ -2,6 +2,7 @@
 
 ## 1.0.5 - June 26, 2019
 - add widget-area class to dyanmic_sidebar( $item )
+- fixed santize for layouts $setting->id
 
 ## 1.0.4 - June 12, 2019
 - menu_display(); fixed
