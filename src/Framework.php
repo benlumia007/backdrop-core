@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop;
+namespace Backdrop;
 
 use Benlumia007\Backdrop\Menu;
 use Benlumia007\Backdrop\Sidebar;
