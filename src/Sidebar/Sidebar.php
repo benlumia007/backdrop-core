@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Sidebar;
+namespace Backdrop\Sidebar;
 
 /**
  * Register Sidebar
