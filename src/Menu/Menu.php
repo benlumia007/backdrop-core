@@ -65,10 +65,10 @@ class Menu {
 		/**
 		 *  This mainly for the primary navigation. THis allows to use click the dropdown for multiple depths.
 		 */
-		wp_enqueue_script( 'backdrop-navigation', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/js/navigation.js' ), array( 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'backdrop-navigation', get_theme_file_uri( '/vendor/benlumia007/backdrop/assets/js/navigation.js' ), array( 'jquery' ), '1.0.0', true );
 		wp_localize_script( 'backdrop-navigation', 'backdropScreenReaderText', array(
-				'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'backdrop-core' ) . '</span>',
-				'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'backdrop-core' ) . '</span>',
+			'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'backdrop' ) . '</span>',
+			'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'backdrop' ) . '</span>',
 		) );
 	}
 }

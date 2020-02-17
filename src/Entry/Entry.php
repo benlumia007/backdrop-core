@@ -40,12 +40,12 @@ class Entry implements Displayable {
 			
 			if ( ! is_page() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 				echo '<i class="fas fa-comment"></i><span class="entry-comments">';
-					comments_popup_link( sprintf( esc_html__( 'No Comments', 'backdrop-core' ) ) );
+					comments_popup_link( sprintf( esc_html__( 'No Comments', 'backdrop' ) ) );
 				echo '</span>';
 			}
 		} elseif ( 'entry-title' === $args ) {
 			if ( is_404() ) {
-				printf( '<h1 class="entry-title">%s</h1>', esc_html__( 'Whoa! You broke something!', 'backdrop-core' ) );
+				printf( '<h1 class="entry-title">%s</h1>', esc_html__( 'Whoa! You broke something!', 'backdrop' ) );
 			} elseif ( is_single() || is_page() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			} elseif ( is_front_page() && is_home() ) {
@@ -56,12 +56,12 @@ class Entry implements Displayable {
 				the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
 			}
 		} elseif ( 'taxonomies' === $args ) {
-			$cat_list = get_the_category_list( esc_html__( ' | ', 'backdrop-core' ) );
-			$tag_list = get_the_tag_list( '', esc_html__( ' | ', 'backdrop-core' ) );
+			$cat_list = get_the_category_list( esc_html__( ' | ', 'backdrop' ) );
+			$tag_list = get_the_tag_list( '', esc_html__( ' | ', 'backdrop' ) );
 			if ( $cat_list ) {
 				printf(
 					'<div class="cat-link"><i class="fas fa-folder-open"></i> %1$s <span class="cat-list"l><b><i>%2$s</i></b></span></div>',
-					esc_html__( ' Posted In', 'backdrop-core' ),
+					esc_html__( ' Posted In', 'backdrop' ),
 					$cat_list // phpcs:ignore
 				);
 			}
@@ -69,7 +69,7 @@ class Entry implements Displayable {
 			if ( $tag_list ) {
 				printf(
 					'<div class="tag-link"><i class="fas fa-tags"></i> %1$s <span class="tag-list"><b><i>%2$s</i></b></span></div>',
-					esc_html__( ' Tagged', 'backdrop-core' ),
+					esc_html__( ' Tagged', 'backdrop' ),
 					$tag_list // phpcs:ignore
 				);
 			}
