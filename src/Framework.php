@@ -13,9 +13,6 @@
  */
 namespace Backdrop;
 
-use Backdrop\Menu;
-use Backdrop\Sidebar;
-
 /**
  * Regiser Menu Class
  */
@@ -33,8 +30,7 @@ class Framework {
 	private function __construct() {
 		self::$instance = $this;
 		$this->theme_setup();
-		$this->load_menu();
-		$this->load_sidebar();
+
 	}
 
 	/**
@@ -92,26 +88,6 @@ class Framework {
 		if ( true === apply_filters( 'backdrop_filter_fontawesome', true ) ) {
 			wp_enqueue_style( 'backdrop-fontawesome', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/font-awesome/css/all.css' ), array(), '1.0.0' );
 		}
-	}
-
-	/**
-	 * Loads Default and Register Features
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function load_menu() {
-		$this->menu = new Menu\Menu();
-	}
-
-	/**
-	 * Loads Default and Register Features
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function load_sidebar() {
-		$this->sidebar = new Sidebar\Sidebar();
 	}
 }
 
