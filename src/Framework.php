@@ -13,8 +13,8 @@
  */
 namespace Backdrop;
 
-use Benlumia007\Backdrop\Menu;
-use Benlumia007\Backdrop\Sidebar;
+use Backdrop\Menu;
+use Backdrop\Sidebar;
 
 /**
  * Regiser Menu Class
