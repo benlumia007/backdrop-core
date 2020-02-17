@@ -30,36 +30,15 @@ class Sidebar {
 	 * @param array $sidebar_id array.
 	 */
 	public function __construct( $sidebar_id = array() ) {
-		$this->sidebar_id = array_merge(
-			$sidebar_id,
-			$this->default_sidebar()
-		);
-		$this->register_custom_sidebar_init();
-	}
+		$this->sidebar_id = array_merge( $sidebar_id );
 
-	/**
-	 * Default Sidebar
-	 */
-	public function default_sidebar() {
-		return array(
-			'primary' => array(
-				'name' => esc_html__( 'Primary Sidebar', 'backdrop-core' ),
-				'desc' => esc_html__( 'All widgets will be on all of the pages and posts.', 'backdrop-core' ),
-			),
-		);
-	}
-
-	/**
-	 * Register Custom Sidebar Initialize
-	 */
-	public function register_custom_sidebar_init() {
-		add_action( 'widgets_init', array( $this, 'register_custom_sidebar' ) );
+		add_action( 'widgets_init', array( $this, 'register_sidebar' ) );
 	}
 
 	/**
 	 * Register Custom Sidebar
 	 */
-	public function register_custom_sidebar() {
+	public function register_sidebar() {
 		foreach ( $this->sidebar_id as $key => $value ) {
 			$this->create_sidebar( $value['name'], $key, $value['desc'] );
 		}
