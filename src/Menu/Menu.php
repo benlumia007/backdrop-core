@@ -30,29 +30,10 @@ class Menu {
 	 * @param string $menu_id string.
 	 */
 	public function __construct( $menu_id = array() ) {
-		$this->menu_id = array_merge(
-			$menu_id,
-			$this->default_menus()
-		);
-		$this->register_nav_menus_init();
-	}
+		$this->menu_id = array_merge( $menu_id );
 
-	/**
-	 * Default Menus
-	 */
-	public function default_menus() {
-		return array(
-			'primary' => esc_html__( 'Primary Navigation', 'backdrop-core' ),
-			'social'  => esc_html__( 'Social Navigation', 'backdrop-core' ),
-		);
-	}
-
-	/**
-	 * Register Custom Menus Initialize
-	 */
-	public function register_nav_menus_init() {
 		add_action( 'after_setup_theme', array( $this, 'register_nav_menus' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'load_nav_menus_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'nav_menus_scripts' ) );
 	}
 
 	/**
@@ -80,18 +61,14 @@ class Menu {
 	/**
 	 * Loads Navigation.js
 	 */
-	public function load_nav_menus_scripts() {
+	public function nav_menus_scripts() {
 		/**
 		 *  This mainly for the primary navigation. THis allows to use click the dropdown for multiple depths.
 		 */
 		wp_enqueue_script( 'backdrop-navigation', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/js/navigation.js' ), array( 'jquery' ), '1.0.0', true );
-		wp_localize_script(
-			'backdrop-navigation',
-			'backdropScreenReaderText',
-			array(
+		wp_localize_script( 'backdrop-navigation', 'backdropScreenReaderText', array(
 				'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'backdrop-core' ) . '</span>',
 				'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'backdrop-core' ) . '</span>',
-			)
-		);
+		) );
 	}
 }
