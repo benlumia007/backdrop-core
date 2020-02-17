@@ -11,9 +11,9 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Entry;
+namespace Backdrop\Entry;
 
-use Benlumia007\Backdrop\Contracts\Displayable;
+use Backdrop\Contracts\Displayable;
 
 /**
  * Site extends SiteContract

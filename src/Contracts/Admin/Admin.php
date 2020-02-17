@@ -8,7 +8,7 @@
  * @author      Benjamin Lu ( https://benjlu.com )
  */
 
-namespace Benlumia007\Backdrop\Contracts\Admin;
+namespace Backdrop\Contracts\Admin;
 
 /**
  * Admin

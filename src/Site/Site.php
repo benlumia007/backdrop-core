@@ -11,10 +11,10 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Site;
+namespace Backdrop\Site;
 
-use Benlumia007\Backdrop\Contracts\Displayable;
-use Benlumia007\Backdrop\Contracts\Renderable;
+use Backdrop\Contracts\Displayable;
+use Backdrop\Contracts\Renderable;
 
 /**
  * Site extends SiteContract
