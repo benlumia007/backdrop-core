@@ -33,7 +33,7 @@ class Menu {
 		$this->menu_id = array_merge( $menu_id );
 
 		add_action( 'after_setup_theme', array( $this, 'register_nav_menus' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'nav_menus_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Menu {
 	/**
 	 * Loads Navigation.js
 	 */
-	public function nav_menus_scripts() {
+	public function enqueue_scripts() {
 		/**
 		 *  This mainly for the primary navigation. THis allows to use click the dropdown for multiple depths.
 		 */
