@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Helpers;
+namespace Backdrop\Helpers;
 
 /**
  * Regiser Menu Class
