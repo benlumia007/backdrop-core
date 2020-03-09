@@ -34,16 +34,16 @@ class Menu extends MenuContracts {
 	public function __construct( $menu_id = array() ) {
 		$this->menu_id = array_merge( $menu_id );
 
-		add_action( 'after_setup_theme', array( $this, 'register_nav_menus' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'after_setup_theme', [ $this, 'register' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue'] );
 	}
 
 	/**
 	 * Register Custom Menus
 	 */
-	public function register_nav_menus() {
+	public function register() {
 		foreach ( $this->menu_id as $key => $value ) {
-			$this->create_menus( $value, $key );
+			$this->create( $value, $key );
 		}
 	}
 
@@ -53,7 +53,7 @@ class Menu extends MenuContracts {
 	 * @param string $name outputs name.
 	 * @param string $id output id.
 	 */
-	public function create_menus( $name, $id ) {
+	public function create( $name, $id ) {
 		$args = array(
 			$id => $name,
 		);
@@ -63,7 +63,7 @@ class Menu extends MenuContracts {
 	/**
 	 * Loads Navigation.js
 	 */
-	public function enqueue_scripts() {
+	public function enqueue() {
 		/**
 		 *  This mainly for the primary navigation. THis allows to use click the dropdown for multiple depths.
 		 */
