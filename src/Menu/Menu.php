@@ -31,7 +31,7 @@ class Menu extends MenuContracts {
 	 *
 	 * @param string $menu_id string.
 	 */
-	public function __construct( $menu_id = array() ) {
+	public function __construct( $menu_id = [] ) {
 		$this->menu_id = array_merge( $menu_id );
 
 		add_action( 'after_setup_theme', [ $this, 'register' ] );
