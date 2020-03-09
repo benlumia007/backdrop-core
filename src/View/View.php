@@ -36,61 +36,62 @@ class View implements Viewable {
 					<?php
 					break;
 				case 'menu':
-					menu_display( $item );
+					static::menu_display( $item );
 					break;
 				default:
 					break;
 			}
 		}
 	}
-}
 
-/**
- * The menu_display();
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function menu_display( $item ) {
-	if ( 'primary' === $item ) {
-		if ( has_nav_menu( 'primary' ) ) { ?>
-			<div class="main-navigation">
-				<nav id="site-navigation" class="primary-navigation">
-					<button class="menu-toggle" aria-conrol="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'backdrop' ); ?></button>
+	/**
+	 * The menu_display();
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public static function menu_display( $item ) {
+		if ( 'primary' === $item ) {
+			if ( has_nav_menu( 'primary' ) ) { ?>
+				<div class="main-navigation">
+					<nav id="site-navigation" class="primary-navigation">
+						<button class="menu-toggle" aria-conrol="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'backdrop' ); ?></button>
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'primary',
+									'menu_id'        => 'primary-menu',
+									'menu_class'     => 'nav-menu',
+									'depth'			 => 2,
+								)
+							);
+						?>
+					</nav>
+				</div>
+			<?php }
+		} elseif ( 'social' === $item ) {
+			if ( has_nav_menu( 'social' ) ) { ?>
+				<nav id="site-social" class="site-social">
 					<?php
 						wp_nav_menu(
 							array(
-								'theme_location' => 'primary',
-								'menu_id'        => 'primary-menu',
-								'menu_class'     => 'nav-menu',
-								'depth'			 => 2,
+								'theme_location'  => 'social',
+								'container'       => 'nav',
+								'container_id'    => 'menu-social',
+								'container_class' => 'menu-social',
+								'menu_id'         => 'menu-social-items',
+								'menu_class'      => 'menu-items',
+								'depth'           => 1,
+								'link_before'     => '<span class="screen-reader-text">',
+								'link_after'      => '</span>',
+								'fallback_cb'     => '',
 							)
 						);
 					?>
 				</nav>
-			</div>
-		<?php }
-	} elseif ( 'social' === $item ) {
-		if ( has_nav_menu( 'social' ) ) { ?>
-			<nav id="site-social" class="site-social">
-				<?php
-					wp_nav_menu(
-						array(
-							'theme_location'  => 'social',
-							'container'       => 'nav',
-							'container_id'    => 'menu-social',
-							'container_class' => 'menu-social',
-							'menu_id'         => 'menu-social-items',
-							'menu_class'      => 'menu-items',
-							'depth'           => 1,
-							'link_before'     => '<span class="screen-reader-text">',
-							'link_after'      => '</span>',
-							'fallback_cb'     => '',
-						)
-					);
-				?>
-			</nav>
-		<?php }
+			<?php }
+		}
 	}
+
 }
