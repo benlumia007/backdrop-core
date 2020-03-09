@@ -13,10 +13,12 @@
  */
 namespace Backdrop\Menu;
 
+use Backdrop\Contracts\Menu\Menu as MenuContracts;
+
 /**
  * Regiser Menu Class
  */
-class Menu {
+class Menu extends MenuContracts {
 	/**
 	 * Menu
 	 *
