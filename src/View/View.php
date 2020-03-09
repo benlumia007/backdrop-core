@@ -70,7 +70,18 @@ class View implements Viewable {
 					</nav>
 				</div>
 			<?php }
-		} elseif ( 'social' === $item ) {
+		} elseif ( 'secondary' === $item ) { ?>
+			<nav id="site-navigation" class="secondary-navigation">
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'secondary',
+							'depth'			 => 1,
+						)
+					);
+				?>
+			</nav>
+		<?php } elseif ( 'social' === $item ) {
 			if ( has_nav_menu( 'social' ) ) { ?>
 				<nav id="site-social" class="site-social">
 					<?php
