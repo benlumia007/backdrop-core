@@ -13,10 +13,12 @@
  */
 namespace Backdrop\Sidebar;
 
+use Backdrop\Contracts\Sidebar\Sidebar as SidebarContract;
+
 /**
  * Register Sidebar
  */
-class Sidebar {
+class Sidebar extends SidebarContract {
 	/**
 	 * $post post.
 	 *
