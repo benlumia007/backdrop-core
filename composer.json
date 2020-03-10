@@ -19,7 +19,7 @@
           "Backdrop\\": "src/"
 		},
 		"files": [
-			"src/Entry/functions-entry"
+			"src/Entry/functions-entry.php"
 		]
     },
     "require": {
