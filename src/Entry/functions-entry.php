@@ -23,7 +23,7 @@ function render_title( array $args = [] ) {
 
 	$args = wp_parse_args( $args, [
 		'text'   => '%s',
-		'tag'    => $is_single ? 'h1' : 'h2',
+		'tag'    => $is_single ? 'h1' : 'h1',
 		'link'   => ! $is_single,
 		'class'  => 'entry-title',
 		'before' => '',
@@ -220,4 +220,99 @@ function render_comments_link( array $args = [] ) {
 	);
 
 	return apply_filters( 'backdrop_display_comments_link', $args['before'] . $html . $args['after'] );
+}
+
+function display_categories( array $args = [] ) {
+
+	echo render_categories( $args );
+}
+
+/**
+ * Returns the post terms HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return string
+ */
+function render_categories( array $args = [] ) {
+
+	$html = '';
+
+	$args = wp_parse_args( $args, [
+		'taxonomy' => 'category',
+		'text'     => '%s',
+		'class'    => '',
+		'sep'      => _x( ', ', 'taxonomy terms separator', 'hybrid-core' ),
+		'before'   => '',
+		'after'    => ''
+	] );
+
+	// Append taxonomy to class name.
+	if ( ! $args['class'] ) {
+		$args['class'] = "entry-terms";
+	}
+
+	$cat = get_the_term_list( get_the_ID(), $args['taxonomy'], '', $args['sep'], '' );
+
+	if ( $cat ) {
+
+		$html = sprintf(
+			'<i class="fas fa-folder-open"></i><span class="%s">%s</span>',
+			esc_attr( $args['class'] ),
+			sprintf( $args['text'], $cat )
+		);
+
+		$html = $args['before'] . $html . $args['after'];
+	}
+
+	return apply_filters( 'backdrop_display_categories', $html );
+}
+
+
+function display_tags( array $args = [] ) {
+
+	echo render_tags( $args );
+}
+
+/**
+ * Returns the post terms HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return string
+ */
+function render_tags( array $args = [] ) {
+
+	$html = '';
+
+	$args = wp_parse_args( $args, [
+		'taxonomy' => 'post_tag',
+		'text'     => '%s',
+		'class'    => '',
+		'sep'      => _x( ', ', 'taxonomy terms separator', 'hybrid-core' ),
+		'before'   => '',
+		'after'    => ''
+	] );
+
+	// Append taxonomy to class name.
+	if ( ! $args['class'] ) {
+		$args['class'] = "entry-terms";
+	}
+
+	$tags = get_the_term_list( get_the_ID(), $args['taxonomy'], '', $args['sep'], '' );
+
+	if ( $tags ) {
+
+		$html = sprintf(
+			'<i class="fas fa-tags"></i><span class="%s">%s</span>',
+			esc_attr( $args['class'] ),
+			sprintf( $args['text'], $tags )
+		);
+
+		$html = $args['before'] . $html . $args['after'];
+	}
+
+	return apply_filters( 'backdrop_display_tags', $html );
 }
