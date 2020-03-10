@@ -54,7 +54,7 @@ class Sidebar extends SidebarContract {
 	 * @param string $desc displays description.
 	 */
 	public function create( $name, $id, $desc ) {
-		$args = array(
+		$args = [
 			'name'          => $name,
 			'id'            => $id,
 			'description'   => $desc,
@@ -62,7 +62,7 @@ class Sidebar extends SidebarContract {
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
-		);
+		];
 		register_sidebar( $args );
 	}
 }

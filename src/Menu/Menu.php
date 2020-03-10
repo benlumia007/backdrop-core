@@ -54,9 +54,9 @@ class Menu extends MenuContracts {
 	 * @param string $id output id.
 	 */
 	public function create( $name, $id ) {
-		$args = array(
+		$args = [
 			$id => $name,
-		);
+		];
 		register_nav_menus( $args );
 	}
 
