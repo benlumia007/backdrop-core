@@ -49,7 +49,7 @@ function render_title( array $args = [] ) {
 /**
  * Outputs the post permalink HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -62,7 +62,7 @@ function display_permalink( array $args = [] ) {
 /**
  * Returns the post permalink HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -91,7 +91,7 @@ function render_permalink( array $args = [] ) {
 /**
  * Outputs the post author HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -133,7 +133,7 @@ function render_author( array $args = [] ) {
 /**
  * Outputs the post date HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -146,7 +146,7 @@ function display_date( array $args = [] ) {
 /**
  * Returns the post date HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -174,7 +174,7 @@ function render_date( array $args = [] ) {
 /**
  * Outputs the post comments link HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -187,7 +187,7 @@ function display_comments_link( array $args = [] ) {
 /**
  * Returns the post comments link HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -230,7 +230,7 @@ function display_categories( array $args = [] ) {
 /**
  * Returns the post terms HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -243,7 +243,7 @@ function render_categories( array $args = [] ) {
 		'taxonomy' => 'category',
 		'text'     => '%s',
 		'class'    => '',
-		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
+		'sep'      => _x( ' | ', 'taxonomy terms separator', 'backdrop-core' ),
 		'before'   => '',
 		'after'    => ''
 	] );
@@ -278,7 +278,7 @@ function display_tags( array $args = [] ) {
 /**
  * Returns the post terms HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -291,7 +291,7 @@ function render_tags( array $args = [] ) {
 		'taxonomy' => 'post_tag',
 		'text'     => '%s',
 		'class'    => '',
-		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
+		'sep'      => _x( ' | ', 'taxonomy terms separator', 'backdrop-core' ),
 		'before'   => '',
 		'after'    => ''
 	] );
