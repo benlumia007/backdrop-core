@@ -13,10 +13,12 @@
  */
 namespace Backdrop\Sidebar;
 
+use Backdrop\Contracts\Sidebar\Sidebar as SidebarContract;
+
 /**
  * Register Sidebar
  */
-class Sidebar {
+class Sidebar extends SidebarContract {
 	/**
 	 * $post post.
 	 *
@@ -29,18 +31,18 @@ class Sidebar {
 	 *
 	 * @param array $sidebar_id array.
 	 */
-	public function __construct( $sidebar_id = array() ) {
+	public function __construct( $sidebar_id = [] ) {
 		$this->sidebar_id = array_merge( $sidebar_id );
 
-		add_action( 'widgets_init', array( $this, 'register_sidebar' ) );
+		add_action( 'widgets_init', [ $this, 'register' ] );
 	}
 
 	/**
 	 * Register Custom Sidebar
 	 */
-	public function register_sidebar() {
+	public function register() {
 		foreach ( $this->sidebar_id as $key => $value ) {
-			$this->create_sidebar( $value['name'], $key, $value['desc'] );
+			$this->create( $value['name'], $key, $value['desc'] );
 		}
 	}
 
@@ -51,8 +53,8 @@ class Sidebar {
 	 * @param string $id displays id for sidebar.
 	 * @param string $desc displays description.
 	 */
-	public function create_sidebar( $name, $id, $desc ) {
-		$args = array(
+	public function create( $name, $id, $desc ) {
+		$args = [
 			'name'          => $name,
 			'id'            => $id,
 			'description'   => $desc,
@@ -60,7 +62,7 @@ class Sidebar {
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
-		);
+		];
 		register_sidebar( $args );
 	}
 }
