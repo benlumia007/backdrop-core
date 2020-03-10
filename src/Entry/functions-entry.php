@@ -13,66 +13,211 @@
  */
 namespace Backdrop\Entry;
 
-use Backdrop\Contracts\Displayable;
+function display_title( array $args = [] ) {
+	echo render_title(); // phpcs:ignore
+}
+
+function render_title( array $args = [] ) {
+	$post_id = get_the_ID();
+	$is_single = is_single( $post_id ) || is_page( $post_id ) || is_attachment( $post_id );
+
+	$args = wp_parse_args( $args, [
+		'text'   => '%s',
+		'tag'    => $is_single ? 'h1' : 'h2',
+		'link'   => ! $is_single,
+		'class'  => 'entry-title',
+		'before' => '',
+		'after'  => ''
+	] );
+
+	$text = sprintf( $args['text'], $is_single ? single_post_title( '', false ) : the_title( '', '', false ) );
+
+	if ( $args['link'] ) {
+		$text = render_permalink( [ 'text' => $text ] );
+	}
+
+	$html = sprintf(
+		'<%1$s class="%2$s">%3$s</%1$s>',
+		tag_escape( $args['tag'] ),
+		esc_attr( $args['class'] ),
+		$text
+	);
+
+	return apply_filters( 'backdrop_display_title', $args['before'] . $html . $args['after'] );
+}
 
 /**
- * Site extends SiteContract
+ * Outputs the post permalink HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
  */
-class Entry implements Displayable {
-	/**
-	 * Display display( $args = '' );
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @param string $args output site information.
-	 */
-	public static function display( $args = '' ) {
-		if ( 'posted-on' === $args ) {
-			$date = sprintf( '<span class="entry-date">%1$s</span>', get_the_date( get_option( 'date_format' ) ) );
+function display_permalink( array $args = [] ) {
 
-			$author = sprintf( '<a href="%1$s">%2$s</a>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), get_the_author() );
+	echo render_permalink( $args );
+}
 
-			printf(
-				'<i class="fas fa-user"></i><span class="by-author">%1$s</span><i class="fas fa-calendar-alt"></i><span class="published">%2$s</span>',
-				$author, //phpcs:ignore
-				$date //phpcs:ignore
-			);
-			
-			if ( ! is_page() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-				echo '<i class="fas fa-comment"></i><span class="entry-comments">';
-					comments_popup_link( sprintf( esc_html__( 'No Comments', 'backdrop' ) ) );
-				echo '</span>';
-			}
-		} elseif ( 'entry-title' === $args ) {
-			if ( is_404() ) {
-				printf( '<h1 class="entry-title">%s</h1>', esc_html__( 'Whoa! You broke something!', 'backdrop' ) );
-			} elseif ( is_single() || is_page() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} elseif ( is_front_page() && is_home() ) {
-				the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
-			} elseif ( is_post_type_archive() ) {
-				printf( '<h1 class="entry-title">%s</h1>', post_type_archive_title( '', false ) );
-			} else {
-				the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
-			}
-		} elseif ( 'taxonomies' === $args ) {
-			$cat_list = get_the_category_list( esc_html__( ' | ', 'backdrop' ) );
-			$tag_list = get_the_tag_list( '', esc_html__( ' | ', 'backdrop' ) );
-			if ( $cat_list ) {
-				printf(
-					'<div class="cat-link"><i class="fas fa-folder-open"></i> %1$s <span class="cat-list"l><b><i>%2$s</i></b></span></div>',
-					esc_html__( ' Posted In', 'backdrop' ),
-					$cat_list // phpcs:ignore
-				);
-			}
-			
-			if ( $tag_list ) {
-				printf(
-					'<div class="tag-link"><i class="fas fa-tags"></i> %1$s <span class="tag-list"><b><i>%2$s</i></b></span></div>',
-					esc_html__( ' Tagged', 'backdrop' ),
-					$tag_list // phpcs:ignore
-				);
-			}
-		}
+/**
+ * Returns the post permalink HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return string
+ */
+function render_permalink( array $args = [] ) {
+
+	$args = wp_parse_args( $args, [
+		'text'   => '%s',
+		'class'  => 'entry__permalink',
+		'before' => '',
+		'after'  => ''
+	] );
+
+	$url = get_permalink();
+
+	$html = sprintf(
+		'<a class="%s" href="%s">%s</a>',
+		esc_attr( $args['class'] ),
+		esc_url( $url ),
+		sprintf( $args['text'], esc_url( $url ) )
+	);
+
+	return apply_filters( 'hybrid/post/permalink', $args['before'] . $html . $args['after'] );
+}
+
+/**
+ * Outputs the post author HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
+function display_author( array $args = [] ) {
+
+	echo render_author( $args );
+}
+
+function render_author( array $args = [] ) {
+	$args = wp_parse_args( $args, [
+		'text'   => '%s',
+		'class'  => 'entry-author',
+		'link'   => true,
+		'before' => '',
+		'after'  => ''
+	] );
+
+	$author = get_the_author();
+
+	if ( $args['link'] ) {
+		$url = get_author_posts_url( get_the_author_meta( 'ID' ) );
+
+		$author = sprintf(
+			'<a class="entry__author-link" href="%s">%s</a>',
+			esc_url( $url ),
+			$author
+		);
 	}
+
+	$html = sprintf( '<i class="fas fa-user"></i><span class="%s">%s</span>', esc_attr( $args['class'] ), $author );
+
+	return apply_filters(
+		'backdrop_display_author',
+		$args['before'] . $html . $args['after']
+	);
+}
+
+/**
+ * Outputs the post date HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
+function display_date( array $args = [] ) {
+
+	echo render_date( $args );
+}
+
+/**
+ * Returns the post date HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return string
+ */
+function render_date( array $args = [] ) {
+
+	$args = wp_parse_args( $args, [
+		'text'   => '%s',
+		'class'  => 'entry-published',
+		'format' => '',
+		'before' => '',
+		'after'  => ''
+	] );
+
+	$html = sprintf(
+		'<i class="fas fa-calendar-alt"></i><time class="%s" datetime="%s">%s</time>',
+		esc_attr( $args['class'] ),
+		esc_attr( get_the_date( DATE_W3C ) ),
+		sprintf( $args['text'], get_the_date( $args['format'] ) )
+	);
+
+	return apply_filters( 'backdrop_display_date', $args['before'] . $html . $args['after'] );
+}
+
+/**
+ * Outputs the post comments link HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
+function display_comments_link( array $args = [] ) {
+
+	echo render_comments_link( $args );
+}
+
+/**
+ * Returns the post comments link HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return string
+ */
+function render_comments_link( array $args = [] ) {
+
+	$args = wp_parse_args( $args, [
+		'zero'   => false,
+		'one'    => false,
+		'more'   => false,
+		'class'  => 'entry-comments',
+		'before' => '',
+		'after'  => ''
+	] );
+
+	$number = get_comments_number();
+
+	if ( 0 == $number && ! comments_open() && ! pings_open() ) {
+		return '';
+	}
+
+	$url  = get_comments_link();
+	$text = get_comments_number_text( $args['zero'], $args['one'], $args['more'] );
+
+	$html = sprintf(
+		'<i class="fas fa-comment"></i><a class="%s" href="%s">%s</a>',
+		esc_attr( $args['class'] ),
+		esc_url( $url ),
+		$text
+	);
+
+	return apply_filters( 'backdrop_display_comments_link', $args['before'] . $html . $args['after'] );
 }
