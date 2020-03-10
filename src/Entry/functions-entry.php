@@ -56,7 +56,7 @@ function render_title( array $args = [] ) {
  */
 function display_permalink( array $args = [] ) {
 
-	echo render_permalink( $args );
+	echo render_permalink( $args ); // phpcs:ignore
 }
 
 /**
@@ -98,7 +98,7 @@ function render_permalink( array $args = [] ) {
  */
 function display_author( array $args = [] ) {
 
-	echo render_author( $args );
+	echo render_author( $args ); // phpcs:ignore
 }
 
 function render_author( array $args = [] ) {
@@ -140,7 +140,7 @@ function render_author( array $args = [] ) {
  */
 function display_date( array $args = [] ) {
 
-	echo render_date( $args );
+	echo render_date( $args ); // phpcs:ignore
 }
 
 /**
@@ -181,7 +181,7 @@ function render_date( array $args = [] ) {
  */
 function display_comments_link( array $args = [] ) {
 
-	echo render_comments_link( $args );
+	echo render_comments_link( $args ); // phpcs:ignore
 }
 
 /**
@@ -224,7 +224,7 @@ function render_comments_link( array $args = [] ) {
 
 function display_categories( array $args = [] ) {
 
-	echo render_categories( $args );
+	echo render_categories( $args ); // phpcs:ignore
 }
 
 /**
@@ -243,7 +243,7 @@ function render_categories( array $args = [] ) {
 		'taxonomy' => 'category',
 		'text'     => '%s',
 		'class'    => '',
-		'sep'      => _x( ', ', 'taxonomy terms separator', 'hybrid-core' ),
+		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
 		'before'   => '',
 		'after'    => ''
 	] );
@@ -272,7 +272,7 @@ function render_categories( array $args = [] ) {
 
 function display_tags( array $args = [] ) {
 
-	echo render_tags( $args );
+	echo render_tags( $args ); // phpcs:ignore
 }
 
 /**
@@ -291,7 +291,7 @@ function render_tags( array $args = [] ) {
 		'taxonomy' => 'post_tag',
 		'text'     => '%s',
 		'class'    => '',
-		'sep'      => _x( ', ', 'taxonomy terms separator', 'hybrid-core' ),
+		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
 		'before'   => '',
 		'after'    => ''
 	] );
