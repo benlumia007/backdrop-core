@@ -54,7 +54,47 @@ function render_site_title( array $args = [] ) {
 			$link // phpcs:ignore
 		);
 	}
-	return apply_filters( 'display_site_title', $html );
+	return apply_filters( 'backdrop_display_site_title', $html );
+}
+
+/**
+ * Outputs the site description HTML.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
+function display_site_description( array $args = [] ) {
+	echo render_site_description( $args ); // phpcs:ignore
+}
+
+/**
+ * Returns the site description HTML.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
+function render_site_description( array $args = [] ) {
+	$args = wp_parse_args( $args, [
+		'tag'       => 'h3',
+		'class'      => 'site-description',
+	] );
+
+	$html = '';
+	$title = get_bloginfo( 'description', 'display' );
+
+	if ( $title ) {
+		$html = sprintf(
+			'<%1$s class="%2$s">%3$s</%1$s>',
+			tag_escape( $args['tag'] ),
+			esc_attr( $args['class'] ),
+			$title
+		);	
+	}
+	return apply_filters( 'backdrop_site_description', $html );
 }
 
 /**
@@ -67,7 +107,7 @@ function render_site_title( array $args = [] ) {
  */
 function display_home_link( array $args = [] ) {
 
-	echo render_home_link( $args );
+	echo render_home_link( $args ); // phpcs:ignore
 }
 
 /**
