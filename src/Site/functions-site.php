@@ -35,7 +35,7 @@ function display_site_title( array $args = [] ) {
  */
 function render_site_title( array $args = [] ) {
 	$args = wp_parse_args( $args, [
-		'tags'       => 'h1',
+		'tag'       => 'h1',
 		'class'      => 'site-title',
 	] );
 
@@ -45,16 +45,15 @@ function render_site_title( array $args = [] ) {
 	if ( $title ) {
 		$link = render_home_link( [
 			'text' => $title,
-			'class' => $args['class']
 		] );
-	}
 
-	$html = printf(
-		'<%1$s class="%2$s">%3$s</a>',
-		tag_escape( $args['tags'] ),
-		esc_attr( $args['class'] ),
-		$link // phpcs:ignore
-	);
+		$html = sprintf(
+			'<%1$s class="%2$s">%3$s</%1$s>',
+			tag_escape( $args['tag'] ),
+			esc_attr( $args['class'] ),
+			$link // phpcs:ignore
+		);
+	}
 	return apply_filters( 'display_site_title', $html );
 }
 
@@ -94,9 +93,5 @@ function render_home_link( array $args = [] ) {
 		esc_url( home_url() ),
 		sprintf( $args['text'], get_bloginfo( 'name', 'display' ) )
 	);
-
-	return apply_filters(
-		'hybrid/site/home_link',
-		$args['before'] . $html . $args['after']
-	);
+	return apply_filters( 'display_home_link', $args['before'] . $html . $args['after'] );
 }
