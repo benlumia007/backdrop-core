@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Backdrop\Entry;
+namespace Benlumia007\Backdrop\Entry;
 
 function display_title( array $args = [] ) {
 	echo render_title(); // phpcs:ignore

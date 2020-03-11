@@ -14,7 +14,7 @@
 /**
  * Define namespace
  */
-namespace Backdrop\Contracts\Sidebar;
+namespace Benlumia007\Backdrop\Contracts\Sidebar;
 
 /**
  * Customize

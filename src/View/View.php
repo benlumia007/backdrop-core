@@ -11,9 +11,9 @@
 /**
  * Define namespace
  */
-namespace Backdrop\View;
+namespace Benlumia007\Backdrop\View;
 
-use Backdrop\Contracts\Viewable;
+use Benlumia007\Backdrop\Contracts\Viewable;
 /**
  * Site extends SiteContract
  */

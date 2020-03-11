@@ -14,7 +14,7 @@
 /**
  * Define namespace
  */
-namespace Backdrop\Contracts\Customize;
+namespace Benlumia007\Backdrop\Contracts\Customize;
 
 /**
  * Customize
