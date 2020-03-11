@@ -13,10 +13,26 @@
  */
 namespace Backdrop\Entry;
 
+/**
+ * Outputs the post title HTML.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
 function display_title( array $args = [] ) {
 	echo render_title(); // phpcs:ignore
 }
 
+/**
+ * Returns the post title HTML.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $args
+ * @return string
+ */
 function render_title( array $args = [] ) {
 	$post_id = get_the_ID();
 	$is_single = is_single( $post_id ) || is_page( $post_id ) || is_attachment( $post_id );
@@ -49,7 +65,7 @@ function render_title( array $args = [] ) {
 /**
  * Outputs the post permalink HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -62,7 +78,7 @@ function display_permalink( array $args = [] ) {
 /**
  * Returns the post permalink HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -91,7 +107,7 @@ function render_permalink( array $args = [] ) {
 /**
  * Outputs the post author HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -101,6 +117,14 @@ function display_author( array $args = [] ) {
 	echo render_author( $args ); // phpcs:ignore
 }
 
+/**
+ * Returns the post author HTML.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
 function render_author( array $args = [] ) {
 	$args = wp_parse_args( $args, [
 		'text'   => '%s',
@@ -133,7 +157,7 @@ function render_author( array $args = [] ) {
 /**
  * Outputs the post date HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -146,7 +170,7 @@ function display_date( array $args = [] ) {
 /**
  * Returns the post date HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -174,7 +198,7 @@ function render_date( array $args = [] ) {
 /**
  * Outputs the post comments link HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -187,7 +211,7 @@ function display_comments_link( array $args = [] ) {
 /**
  * Returns the post comments link HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -222,15 +246,23 @@ function render_comments_link( array $args = [] ) {
 	return apply_filters( 'backdrop_display_comments_link', $args['before'] . $html . $args['after'] );
 }
 
+/**
+ * Outputs the post category HTML.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $args
+ * @return string
+ */
 function display_categories( array $args = [] ) {
 
 	echo render_categories( $args ); // phpcs:ignore
 }
 
 /**
- * Returns the post terms HTML.
+ * Returns the post category HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -269,16 +301,23 @@ function render_categories( array $args = [] ) {
 	return apply_filters( 'backdrop_display_categories', $html );
 }
 
-
+/**
+ * Outputs the post tags HTML.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $args
+ * @return string
+ */
 function display_tags( array $args = [] ) {
 
 	echo render_tags( $args ); // phpcs:ignore
 }
 
 /**
- * Returns the post terms HTML.
+ * Returns the post tags HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
