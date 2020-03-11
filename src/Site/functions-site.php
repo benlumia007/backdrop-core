@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Backdrop\Site;
+namespace Benlumia007\Backdrop\Site;
 
 /**
  * Outputs the site title HTML.
