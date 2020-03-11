@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-          "Backdrop\\": "src/"
+          "Benlumia007\\Backdrop\\": "src/"
 		},
 		"files": [
 			"src/Entry/functions-entry.php",
