@@ -43,7 +43,7 @@ function render_site_title( array $args = [] ) {
 	$title = get_bloginfo( 'name', 'display' );
 
 	if ( $title ) {
-		$link = rendr_home_link( [
+		$link = render_home_link( [
 			'text' => $title,
 			'class' => $args['class']
 		] );
@@ -56,4 +56,47 @@ function render_site_title( array $args = [] ) {
 		$link // phpcs:ignore
 	);
 	return apply_filters( 'display_site_title', $html );
+}
+
+/**
+ * Outputs the site link HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
+function display_home_link( array $args = [] ) {
+
+	echo render_home_link( $args );
+}
+
+/**
+ * Returns the site link HTML.
+ *
+ * @since  5.0.0
+ * @access public
+ * @param  array  $args
+ * @return string
+ */
+function render_home_link( array $args = [] ) {
+
+	$args = wp_parse_args( $args, [
+		'text'   => '%s',
+		'class'  => 'home-link',
+		'before' => '',
+		'after'  => ''
+	] );
+
+	$html = sprintf(
+		'<a class="%s" href="%s" rel="home">%s</a>',
+		esc_attr( $args['class'] ),
+		esc_url( home_url() ),
+		sprintf( $args['text'], get_bloginfo( 'name', 'display' ) )
+	);
+
+	return apply_filters(
+		'hybrid/site/home_link',
+		$args['before'] . $html . $args['after']
+	);
 }
