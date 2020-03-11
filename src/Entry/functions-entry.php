@@ -275,7 +275,7 @@ function render_categories( array $args = [] ) {
 		'taxonomy' => 'category',
 		'text'     => '%s',
 		'class'    => '',
-		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
+		'sep'      => _x( ' | ', 'taxonomy terms separator', 'backdrop-core' ),
 		'before'   => '',
 		'after'    => ''
 	] );
@@ -330,7 +330,7 @@ function render_tags( array $args = [] ) {
 		'taxonomy' => 'post_tag',
 		'text'     => '%s',
 		'class'    => '',
-		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
+		'sep'      => _x( ' | ', 'taxonomy terms separator', 'backdrop-core' ),
 		'before'   => '',
 		'after'    => ''
 	] );
