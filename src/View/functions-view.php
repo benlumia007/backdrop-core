@@ -23,6 +23,9 @@ function display( $type, $items = [] ) {
 				</div>
 				<?php
 				break;
+			case 'menu':
+				menu( $item );
+				break;
 			default:
 				break;
 		}
