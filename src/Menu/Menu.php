@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Backdrop\Menu;
+namespace Benlumia007\Backdrop\Menu;
 
 use Benlumia007\Backdrop\Contracts\Menu\Menu as MenuContracts;
 
