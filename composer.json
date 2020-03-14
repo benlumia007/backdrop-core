@@ -20,8 +20,8 @@
 		},
 		"files": [
 			"src/Entry/functions-entry.php",
-			"src/Pagination/functions-pagination.php",
-			"src/Site/functions-site.php"
+			"src/Site/functions-site.php",
+			"src/View/functions-view.php"
 		]
     },
     "require": {
