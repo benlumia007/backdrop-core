@@ -21,5 +21,5 @@ interface Displayable {
 	 * @access public
 	 * @param  array $args display.
 	 */
-	public static function display( $args = '' );
+	public static function display();
 }

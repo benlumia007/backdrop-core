@@ -21,5 +21,5 @@ interface Renderable {
 	 * @access public
 	 * @param  array $args render.
 	 */
-	public static function render( $args = '' );
+	public static function render();
 }

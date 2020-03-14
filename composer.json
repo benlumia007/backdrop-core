@@ -20,6 +20,7 @@
 		},
 		"files": [
 			"src/Entry/functions-entry.php",
+			"src/Pagination/functions-pagination.php",
 			"src/Site/functions-site.php"
 		]
     },
