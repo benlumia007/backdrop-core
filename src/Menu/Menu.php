@@ -13,7 +13,7 @@
  */
 namespace Backdrop\Menu;
 
-use Backdrop\Contracts\Menu\Menu as MenuContracts;
+use Benlumia007\Backdrop\Contracts\Menu\Menu as MenuContracts;
 
 /**
  * Regiser Menu Class
