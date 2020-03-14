@@ -13,8 +13,6 @@
  */
 namespace Benlumia007\Backdrop\View;
 
-use Benlumia007\Backdrop\Contracts\Viewable;
-
 
 function display( $type, $items = [] ) {
 	foreach ( $items as $item ) {
@@ -28,5 +26,59 @@ function display( $type, $items = [] ) {
 			default:
 				break;
 		}
+	}
+}
+
+function menu( $item ) {
+	if ( 'primary' === $item ) {
+		if ( has_nav_menu( 'primary' ) ) { ?>
+			<div class="main-navigation">
+				<nav id="site-navigation" class="primary-navigation">
+					<button class="menu-toggle" aria-conrol="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'backdrop' ); ?></button>
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'primary',
+								'menu_id'        => 'primary-menu',
+								'menu_class'     => 'nav-menu',
+								'depth'			 => 2,
+							)
+						);
+					?>
+				</nav>
+			</div>
+		<?php }
+	} elseif ( 'secondary' === $item ) { ?>
+		<nav id="site-navigation" class="secondary-navigation">
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'secondary',
+						'depth'			 => 1,
+					)
+				);
+			?>
+		</nav>
+	<?php } elseif ( 'social' === $item ) {
+		if ( has_nav_menu( 'social' ) ) { ?>
+			<nav id="site-social" class="site-social">
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location'  => 'social',
+							'container'       => 'nav',
+							'container_id'    => 'menu-social',
+							'container_class' => 'menu-social',
+							'menu_id'         => 'menu-social-items',
+							'menu_class'      => 'menu-items',
+							'depth'           => 1,
+							'link_before'     => '<span class="screen-reader-text">',
+							'link_after'      => '</span>',
+							'fallback_cb'     => '',
+						)
+					);
+				?>
+			</nav>
+		<?php }
 	}
 }
