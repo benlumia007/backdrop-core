@@ -11,12 +11,12 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Core;
+namespace Benlumia007\Backdrop;
 
 /**
  * Regiser Menu Class
  */
-class Application {
+class Framework {
 	/**
 	 * Private static instance
 	 *
