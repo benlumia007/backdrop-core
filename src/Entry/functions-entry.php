@@ -239,10 +239,10 @@ function render_categories( array $args = [] ) {
 	$args = wp_parse_args( $args, [
 		'taxonomy' => 'category',
 		'text'     => '%s',
-		'class'    => '',
+		'class'    => 'cat-list',
 		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
-		'before'   => '',
-		'after'    => ''
+		'before'   => '<div class="cat-link">',
+		'after'    => '</div>'
 	] );
 
 	// Append taxonomy to class name.
@@ -255,7 +255,7 @@ function render_categories( array $args = [] ) {
 	if ( $cat ) {
 
 		$html = sprintf(
-			'<i class="fas fa-folder-open"></i><span class="%s">%s</span>',
+			'<i class="fas fa-folder-open"></i> <span class="%s">%s</span>',
 			esc_attr( $args['class'] ),
 			sprintf( $args['text'], $cat )
 		);
@@ -287,10 +287,10 @@ function render_tags( array $args = [] ) {
 	$args = wp_parse_args( $args, [
 		'taxonomy' => 'post_tag',
 		'text'     => '%s',
-		'class'    => '',
+		'class'    => 'tag-list',
 		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
-		'before'   => '',
-		'after'    => ''
+		'before'   => '<div class="tag-link">',
+		'after'    => '</div>'
 	] );
 
 	// Append taxonomy to class name.
@@ -303,7 +303,7 @@ function render_tags( array $args = [] ) {
 	if ( $tags ) {
 
 		$html = sprintf(
-			'<i class="fas fa-tags"></i><span class="%s">%s</span>',
+			'<i class="fas fa-tags"></i> <span class="%s">%s</span>',
 			esc_attr( $args['class'] ),
 			sprintf( $args['text'], $tags )
 		);
