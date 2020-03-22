@@ -1,9 +1,9 @@
 <?php //phpcs:ignore
 /**
- * Backdrop Core ( framework.php )
+ * Backdrop Core ( functions-site.php )
  *
  * @package     Backdrop Core
- * @copyright   Copyright (C) 2019. Benjamin Lu
+ * @copyright   Copyright (C) 2019-2020. Benjamin Lu
  * @license     GNU General PUblic License v2 or later ( https://www.gnu.org/licenses/gpl-2.0.html )
  * @author      Benjamin Lu ( https://benjlu.com )
  */
@@ -168,8 +168,8 @@ function render_wp_link( array $args = [] ) {
 	$html = sprintf(
 		'<a class="%1$s" href="%2$s">%3$s</a>',
 		esc_attr( $args['class'] ),
-		esc_url( __( 'https://wordpress.org', 'backdrop' ) ),
-		sprintf( $args['text'], esc_html__( 'WordPress', 'backdrop' ) )
+		esc_url( __( 'https://wordpress.org', 'backdrop-core' ) ),
+		sprintf( $args['text'], esc_html__( 'WordPress', 'backdrop-core' ) )
 	);
 	return apply_filters( 'backdrop_wp_link', $html );
 }

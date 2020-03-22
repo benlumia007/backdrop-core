@@ -1,9 +1,9 @@
-<?php //phpcs:ignore
+<?php
 /**
- * Backdrop Core ( framework.php )
+ * Backdrop Core ( functions-entry.php )
  *
  * @package     Backdrop Core
- * @copyright   Copyright (C) 2019. Benjamin Lu
+ * @copyright   Copyright (C) 2019-2020. Benjamin Lu
  * @license     GNU General PUblic License v2 or later ( https://www.gnu.org/licenses/gpl-2.0.html )
  * @author      Benjamin Lu ( https://benjlu.com )
  */
@@ -49,7 +49,7 @@ function render_title( array $args = [] ) {
 /**
  * Outputs the post permalink HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -62,7 +62,7 @@ function display_permalink( array $args = [] ) {
 /**
  * Returns the post permalink HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -91,7 +91,7 @@ function render_permalink( array $args = [] ) {
 /**
  * Outputs the post author HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -130,7 +130,7 @@ function render_author( array $args = [] ) {
 /**
  * Outputs the post date HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -143,7 +143,7 @@ function display_date( array $args = [] ) {
 /**
  * Returns the post date HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -171,7 +171,7 @@ function render_date( array $args = [] ) {
 /**
  * Outputs the post comments link HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return void
@@ -184,7 +184,7 @@ function display_comments_link( array $args = [] ) {
 /**
  * Returns the post comments link HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -227,7 +227,7 @@ function display_categories( array $args = [] ) {
 /**
  * Returns the post terms HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -240,7 +240,7 @@ function render_categories( array $args = [] ) {
 		'taxonomy' => 'category',
 		'text'     => '%s',
 		'class'    => 'cat-list',
-		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
+		'sep'      => _x( ' | ', 'taxonomy terms separator', 'backdrop-core' ),
 		'before'   => '<div class="cat-link">',
 		'after'    => '</div>'
 	] );
@@ -275,7 +275,7 @@ function display_tags( array $args = [] ) {
 /**
  * Returns the post terms HTML.
  *
- * @since  5.0.0
+ * @since  1.0.0
  * @access public
  * @param  array  $args
  * @return string
@@ -288,7 +288,7 @@ function render_tags( array $args = [] ) {
 		'taxonomy' => 'post_tag',
 		'text'     => '%s',
 		'class'    => 'tag-list',
-		'sep'      => _x( ' | ', 'taxonomy terms separator', 'hybrid-core' ),
+		'sep'      => _x( ' | ', 'taxonomy terms separator', 'backdrop-core' ),
 		'before'   => '<div class="tag-link">',
 		'after'    => '</div>'
 	] );
