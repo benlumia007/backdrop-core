@@ -44,7 +44,6 @@ function menu( $item ) {
 								'theme_location' => 'primary',
 								'menu_id'        => 'primary-menu',
 								'menu_class'     => 'nav-menu',
-								'depth'			 => 2,
 							)
 						);
 					?>
