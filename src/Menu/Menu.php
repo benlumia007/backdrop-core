@@ -3,7 +3,7 @@
  * Backdrop Core ( framework.php )
  *
  * @package     Backdrop Core
- * @copyright   Copyright (C) 2019. Benjamin Lu
+ * @copyright   Copyright (C) 2019-2020. Benjamin Lu
  * @license     GNU General PUblic License v2 or later ( https://www.gnu.org/licenses/gpl-2.0.html )
  * @author      Benjamin Lu ( https://benjlu.com )
  */
@@ -66,8 +66,8 @@ class Menu extends MenuContracts {
 		 */
 		wp_enqueue_script( 'backdrop-core-navigation', get_theme_file_uri( 'vendor/benlumia007/backdrop-core/assets/js/navigation.js' ), array('jquery'), '1.0.0', true );
 		wp_localize_script( 'backdrop-core-navigation', 'backdropCoreScreenReaderText', array(
-			'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'backdrop' ) . '</span>',
-			'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'backdrop' ) . '</span>',
+			'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'backdrop-core' ) . '</span>',
+			'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'backdrop-core' ) . '</span>',
 		) );
 	}
 }
