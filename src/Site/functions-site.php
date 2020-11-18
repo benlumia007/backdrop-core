@@ -252,3 +252,40 @@ function render_home_link( array $args = [] ) {
 	);
 	return apply_filters( 'display_home_link', $args['before'] . $html . $args['after'] );
 }
+
+/**
+ * Output the ClassicPress Link HTML.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
+function display_cp_link( array $args = [] ) {
+	echo render_cp_link( $args ); // phpcs:ignore
+}
+
+/**
+ * Returns the ClassicPress Link HTML.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array  $args
+ * @return void
+ */
+function render_cp_link( array $args = [] ) {
+	$args = wp_parse_args( $args, [
+		'text'   => '%s',
+		'class'  => 'cp-link',
+		'before' => '',
+		'after'  => '',
+	] );
+
+	$html = sprintf(
+		'<a class="%1$s" href="%2$s">%3$s</a>',
+		esc_attr( $args['class'] ),
+		esc_url( __( 'https://classicpress.net', 'backdrop-core' ) ),
+		sprintf( $args['text'], esc_html__( 'ClassicPress', 'backdrop-core' ) )
+	);
+	return apply_filters( 'backdrop_cp_link', $html );
+}
