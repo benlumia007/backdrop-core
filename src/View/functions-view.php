@@ -43,7 +43,7 @@ function menu( $item ) {
 							array(
 								'theme_location' => 'primary',
 								'menu_id'        => 'primary-menu',
-								'menu_class'     => 'nav-menu',
+								'menu_class'     => 'primary-menu nav-menu',
 							)
 						);
 					?>
