@@ -51,7 +51,7 @@
 			icon = document.createElement( 'span' ),
 			screenreadertext = document.createElement( 'span' );
 
-		icon.classList.add( 'fontawesome' );
+		icon.classList.add( 'dashicons' );
 		icon.setAttribute( 'aria-hidden', 'true' );
 
 		screenreadertext.classList.add( 'screen-reader-text' );
