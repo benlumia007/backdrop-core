@@ -14,7 +14,7 @@
 namespace Benlumia007\Backdrop\Entry;
 
 function display_title( array $args = [] ) {
-	echo render_title(); // phpcs:ignore
+	echo render_title( $args ); // phpcs:ignore
 }
 
 function render_title( array $args = [] ) {
