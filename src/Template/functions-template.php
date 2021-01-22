@@ -35,7 +35,7 @@ function get_template_part( $slug, $name = '' ) {
 	$templates[] = "public/views/{$slug}/{$slug}.php";
 
 	$templates = apply_filters( "backdrop_{$slug}_template_hierarchy", $templates, $name );
-	$template  = apply_filters( "hybrid_{$slug}_template", locate_template( $templates ), $name );
+	$template  = apply_filters( "backdrop_{$slug}_template", locate_template( $templates ), $name );
 
 	if ( $template ) {
 		include( $template ); // phpcs:ignore
