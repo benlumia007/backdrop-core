@@ -1,24 +1,23 @@
-<?php //phpcs:ignore
+<?php
 /**
- * Backdrop Core ( Sidebar.php )
+ * Backdrop Core ( src/Sidebar/Sidebar.php )
  *
- * @package     Backdrop Core
- * @copyright   Copyright (C) 2019-2020. Benjamin Lu
- * @license     GNU General PUblic License v2 or later ( https://www.gnu.org/licenses/gpl-2.0.html )
- * @author      Benjamin Lu ( https://benjlu.com )
+ * @package   Backdrop Core
+ * @copyright Copyright (C) 2019-2021. Benjamin Lu
+ * @license   GNU General PUblic License v2 or later ( https://www.gnu.org/licenses/gpl-2.0.html )
+ * @author    Benjamin Lu ( https://getbenonit.com )
  */
 
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Sidebar;
-
-use Benlumia007\Backdrop\Contracts\Sidebar\Sidebar as SidebarContract;
+namespace Benlumia007\Backdrop\Aside;
+use Benlumia007\Backdrop\Contracts\Aside\Sidebar as SidebarContract;
 
 /**
  * Register Sidebar
  */
-class Sidebar extends SidebarContract {
+class Sidebar implements SidebarContract {
 	/**
 	 * $post post.
 	 *
@@ -33,8 +32,6 @@ class Sidebar extends SidebarContract {
 	 */
 	public function __construct( $sidebar_id = [] ) {
 		$this->sidebar_id = array_merge( $sidebar_id );
-
-		add_action( 'widgets_init', [ $this, 'register' ] );
 	}
 
 	/**
@@ -64,5 +61,9 @@ class Sidebar extends SidebarContract {
 			'after_title'   => '</h2>',
 		];
 		register_sidebar( $args );
+	}
+
+	public function boot() {
+		add_action( 'widgets_init', [ $this, 'register' ] );
 	}
 }
