@@ -67,7 +67,6 @@ class Framework extends Container implements FrameworkContract, Bootable {
 		$this->registerDefaultBindings();
 		$this->registerDefaultProviders();
 		$this->registerDefaultProxies();
-		$this->bootstrapFilters();
 	}
 
 	/**
@@ -126,18 +125,6 @@ class Framework extends Container implements FrameworkContract, Bootable {
 	protected function registerDefaultProxies() {
 
 		$this->proxy( App::class, '\Hybrid\App' );
-	}
-
-	/**
-	 * Bootstrap action/filter hook calls.
-	 *
-	 * @since  2.0.0
-	 * @access protected
-	 * @return void
-	 */
-	protected function bootstrapFilters() {
-
-		require_once( $this->path . '/bootstrap-filters.php' );
 	}
 
 	/**
