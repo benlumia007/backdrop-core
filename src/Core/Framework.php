@@ -17,7 +17,7 @@ use Benlumia007\Backdrop\Contracts\Core\Framework as FrameworkContract;
 use Benlumia007\Backdrop\Contracts\Bootable;
 use Benlumia007\Backdrop\Proxies\Proxy;
 use Benlumia007\Backdrop\Proxies\App;
-use Benlumia007\Backdrop\Aside\ServiceSidebarProvider;
+use Benlumia007\Backdrop\Aside\SidebarServiceProvider;
 
 /**
  * Application class.
@@ -111,7 +111,7 @@ class Framework extends Container implements FrameworkContract, Bootable {
 		array_map( function( $provider ) {
 			$this->provider( $provider );
 		}, [
-			ServiceSidebarProvider::class,
+			SidebarServiceProvider::class,
 		] );
 	}
 
