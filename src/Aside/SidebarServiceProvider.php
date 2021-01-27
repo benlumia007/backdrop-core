@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Sidebar;
+namespace Benlumia007\Backdrop\Aside;
 use Benlumia007\Backdrop\Tools\ServiceProvider;
 
 /**
@@ -20,7 +20,7 @@ use Benlumia007\Backdrop\Tools\ServiceProvider;
  * @since  5.0.0
  * @access public
  */
-class Provider extends ServiceProvider {
+class SidebarServiceProvider extends ServiceProvider {
 
 	/**
 	 * Binds the implementation of the attributes contract to the container.
