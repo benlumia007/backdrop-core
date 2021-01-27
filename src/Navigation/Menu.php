@@ -1,24 +1,23 @@
-<?php //phpcs:ignore
+<?php
 /**
- * Backdrop Core ( framework.php )
+ * Backdrop Core ( src/Menu/Menu.php )
  *
- * @package     Backdrop Core
- * @copyright   Copyright (C) 2019-2020. Benjamin Lu
- * @license     GNU General PUblic License v2 or later ( https://www.gnu.org/licenses/gpl-2.0.html )
- * @author      Benjamin Lu ( https://benjlu.com )
+ * @package   Backdrop Core
+ * @copyright Copyright (C) 2019-2021. Benjamin Lu
+ * @license   GNU General PUblic License v2 or later ( https://www.gnu.org/licenses/gpl-2.0.html )
+ * @author    Benjamin Lu ( https://getbenonit.com )
  */
 
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Menu;
-
-use Benlumia007\Backdrop\Contracts\Menu\Menu as MenuContracts;
+namespace Benlumia007\Backdrop\Navigation;
+use Benlumia007\Backdrop\Contracts\Navigation\Menu as MenuContracts;
 
 /**
  * Regiser Menu Class
  */
-class Menu extends MenuContracts {
+class Menu implements MenuContracts {
 	/**
 	 * Menu
 	 *
@@ -33,9 +32,6 @@ class Menu extends MenuContracts {
 	 */
 	public function __construct( $menu_id = [] ) {
 		$this->menu_id = array_merge( $menu_id );
-
-		add_action( 'after_setup_theme', [ $this, 'register' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 	}
 
 	/**
@@ -69,5 +65,10 @@ class Menu extends MenuContracts {
 			'expand'   => '<span class="screen-reader-text">' . esc_html__( 'expand child menu', 'backdrop-core' ) . '</span>',
 			'collapse' => '<span class="screen-reader-text">' . esc_html__( 'collapse child menu', 'backdrop-core' ) . '</span>',
 		) );
+	}
+
+	public function boot() {
+		add_action( 'after_setup_theme', [ $this, 'register' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 	}
 }
