@@ -34,5 +34,5 @@ interface Sidebar extends Bootable {
 	/**
 	 * Register register_sections
 	 */
-	public function create( $name, $id, $desc );
+	public function create( string $name, string $id, string $desc );
 }

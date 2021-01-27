@@ -49,7 +49,7 @@ class Menu implements MenuContracts {
 	 * @param string $name outputs name.
 	 * @param string $id output id.
 	 */
-	public function create( $name, $id ) {
+	public function create( string $name, string $id ) {
 		$args = [
 			$id => $name,
 		];

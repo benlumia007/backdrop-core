@@ -50,7 +50,7 @@ class Sidebar implements SidebarContract {
 	 * @param string $id displays id for sidebar.
 	 * @param string $desc displays description.
 	 */
-	public function create( $name, $id, $desc ) {
+	public function create( string $name, string $id, string $desc ) {
 		$args = [
 			'name'          => $name,
 			'id'            => $id,

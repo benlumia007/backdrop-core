@@ -45,5 +45,5 @@ interface Menu extends Bootable {
 	 * @since  2.0.0
 	 * @access public
 	 */
-	public function create( $name, $id );
+	public function create( string $name, string $id );
 }
