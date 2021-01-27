@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Aside;
+namespace Benlumia007\Backdrop\Assets;
 use Benlumia007\Backdrop\Tools\ServiceProvider;
 use Benlumia007\Backdrop\Assets\FontAwesome;
 

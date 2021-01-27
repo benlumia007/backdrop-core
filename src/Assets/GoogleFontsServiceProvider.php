@@ -34,10 +34,10 @@ class GoogleFontsServiceProvider extends ServiceProvider {
 
 		$this->app->bind( GoogleFonts::class );
 
-		$this->app->alias( GoogleFonts::class, 'sidebar' );
+		$this->app->alias( GoogleFonts::class, 'googlefonts' );
     }
     
     public function boot() {
-        $this->app->resolve( 'sidebar' )->boot();
+        $this->app->resolve( 'googlefonts' )->boot();
     }
 }
