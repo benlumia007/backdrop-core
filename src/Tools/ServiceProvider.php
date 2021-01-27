@@ -36,7 +36,7 @@ abstract class ServiceProvider {
 	 *
 	 * @since  2.0.0
 	 * @access public
-	 * @param  Application  $app
+	 * @param  Framework  $app
 	 * @return void
 	 */
 	public function __construct( Framework $app ) {
