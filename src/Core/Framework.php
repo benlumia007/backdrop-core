@@ -1,6 +1,6 @@
 <?php
 /**
- * Backdrop Core ( src/Contracts/Bootable.php )
+ * Backdrop Core ( src/Core/Framework.php )
  *
  * @package   Backdrop Core
  * @copyright Copyright (C) 2019-2021. Benjamin Lu
