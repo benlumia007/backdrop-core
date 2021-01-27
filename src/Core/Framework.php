@@ -17,7 +17,7 @@ use Benlumia007\Backdrop\Contracts\Core\Framework as FrameworkContract;
 use Benlumia007\Backdrop\Contracts\Bootable;
 use Benlumia007\Backdrop\Proxies\Proxy;
 use Benlumia007\Backdrop\Proxies\App;
-use Benlumia007\Backdrop\Sidebar\ServiceSidebarProvider;
+use Benlumia007\Backdrop\Aside\ServiceSidebarProvider;
 
 /**
  * Application class.
