@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Assets;
+namespace Benlumia007\Backdrop\Contracts\Assets;
 use Benlumia007\Backdrop\Contracts\Bootable;
 
 /**
@@ -29,5 +29,3 @@ interface GoogleFonts extends Bootable {
 	 */
 	public function enqueue();
 }
-
-

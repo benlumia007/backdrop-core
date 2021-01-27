@@ -17,7 +17,7 @@ use Benlumia007\Backdrop\Contracts\Bootable;
 /**
  * Regiser Menu Class
  */
-interface FontAwesome extends Bootable {
+class FontAwesome implements Bootable {
 	/**
 	 * Loads theme_enqueue();
 	 *
@@ -27,5 +27,13 @@ interface FontAwesome extends Bootable {
 	 * @access public
 	 * @return void
 	 */
-	public function enqueue();
+	public function enqueue() {
+		if ( true === apply_filters( 'backdrop_filter_fontawesome', true ) ) {
+			wp_enqueue_style( 'backdrop-fontawesome', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/font-awesome/css/all.css' ), array(), '1.0.0' );
+		}
+    }
+
+    public function boot() {
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
+    }
 }
