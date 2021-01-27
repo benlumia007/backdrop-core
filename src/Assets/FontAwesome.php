@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Contracts\Assets;
+namespace Benlumia007\Backdrop\Assets;
 use Benlumia007\Backdrop\Contracts\Bootable;
 
 /**
