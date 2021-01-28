@@ -34,22 +34,15 @@ function display( $type, $items = [] ) {
 
 function menu( $item ) {
 	if ( 'primary' === $item ) {
-		if ( has_nav_menu( 'primary' ) ) { ?>
-			<div class="main-navigation">
-				<nav id="site-navigation" class="primary-navigation">
-					<button class="menu-toggle" aria-conrol="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'backdrop-core' ); ?></button>
-					<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'primary',
-								'menu_id'        => 'primary-menu',
-								'menu_class'     => 'primary-menu nav-menu',
-							)
-						);
-					?>
-				</nav>
-			</div>
-		<?php }
+		if ( has_nav_menu( 'primary' ) ) {
+			wp_nav_menu(
+				array(
+					'theme_location' => 'primary',
+					'menu_id'        => 'primary-menu',
+					'menu_class'     => 'primary-menu nav-menu',
+				)
+			);
+		}
 	} elseif ( 'secondary' === $item ) { ?>
 		<nav id="site-navigation" class="secondary-navigation">
 			<?php
