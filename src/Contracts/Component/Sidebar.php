@@ -11,8 +11,8 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Contracts\Aside;
-use Benlumia007\Backdrop\Contracts\Bootable;
+namespace Benlumia007\Backdrop\Contracts\Component;
+use Benlumia007\Backdrop\Constracts\Bootable;
 
 /**
  * Sidebar Interface
