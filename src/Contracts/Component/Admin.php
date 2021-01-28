@@ -19,11 +19,6 @@ use Benlumia007\Backdrop\Constracts\Bootable;
  */
 interface Admin {
 	/**
-	 * Construct
-	 */
-	public function __construct();
-
-	/**
 	 * menu()
 	 */
 	public function menu();
