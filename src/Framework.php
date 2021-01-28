@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Core;
+namespace Benlumia007\Backdrop;
 use Benlumia007\Backdrop\Container\Container;
 use Benlumia007\Backdrop\Contracts\Core\Framework as FrameworkContract;
 use Benlumia007\Backdrop\Contracts\Bootable;
