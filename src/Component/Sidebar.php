@@ -11,8 +11,8 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Aside;
-use Benlumia007\Backdrop\Contracts\Aside\Sidebar as SidebarContract;
+namespace Benlumia007\Backdrop\Component;
+use Benlumia007\Backdrop\Contracts\Component\Sidebar as SidebarContract;
 
 /**
  * Register Sidebar

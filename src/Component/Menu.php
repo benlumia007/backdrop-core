@@ -11,8 +11,8 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Navigation;
-use Benlumia007\Backdrop\Contracts\Navigation\Menu as MenuContracts;
+namespace Benlumia007\Backdrop\Component;
+use Benlumia007\Backdrop\Contracts\Component\Menu as MenuContracts;
 
 /**
  * Regiser Menu Class
