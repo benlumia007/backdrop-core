@@ -20,21 +20,33 @@ use Benlumia007\Backdrop\Constracts\Bootable;
 interface Admin {
 	/**
 	 * menu()
+	 * 
+	 * @since  2.0.0
+	 * @access public
 	 */
 	public function menu();
 
 	/**
 	 * callback()
+	 * 
+	 * @since  2.0.0
+	 * @access public
 	 */
 	public function callback();
 
 	/**
 	 * tabs()
+	 * 
+	 * @since  2.0.0
+	 * @access public
 	 */
 	public function tabs();
 
 	/**
 	 * pages()
+	 * 
+	 * @since  2.0.0
+	 * @access public
 	 */
 	public function pages();
 }
