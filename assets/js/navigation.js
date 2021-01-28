@@ -26,7 +26,7 @@
 ( function() {
 	var container, button, dropdown, icon, screenreadertext, parentLink, menu, submenu, links, i, len;
 
-	container = document.getElementById( 'header' );
+	container = document.getElementById( 'masthead' );
 	if ( ! container ) {
 		return;
 	}

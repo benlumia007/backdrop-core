@@ -28,9 +28,7 @@ class FontAwesome implements Bootable {
 	 * @return void
 	 */
 	public function enqueue() {
-		if ( true === apply_filters( 'backdrop_filter_fontawesome', true ) ) {
-			wp_enqueue_style( 'backdrop-fontawesome', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/font-awesome/css/all.css' ), array(), '1.0.0' );
-		}
+		wp_enqueue_style( 'backdrop-fontawesome', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/font-awesome/css/all.css' ), array(), '1.0.0' );
     }
 
     public function boot() {

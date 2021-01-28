@@ -28,14 +28,12 @@ class GoogleFonts implements Bootable {
 	 * @return void
 	 */
 	public function enqueue() {
-		if ( true === apply_filters( 'backrop_cusom_fonts', true ) ) {
-			/**
-			 * This will load local Google Fonts as part of the theme. Fira Sans and Merriweather. For more information regarding
-			 * this feature, please go to the following url. ( https://google-webfonts-helper.herokuapp.com/fonts ). This also will
-			 * load font awesome 5.0 into one css file.
-			 */
-			wp_enqueue_style( 'backdrop-custom-fonts', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/fonts/custom-fonts.css' ), array(), '1.0.0' );
-		}
+		/**
+		 * This will load local Google Fonts as part of the theme. Fira Sans and Merriweather. For more information regarding
+		 * this feature, please go to the following url. ( https://google-webfonts-helper.herokuapp.com/fonts ). This also will
+		 * load font awesome 5.0 into one css file.
+		 */
+		wp_enqueue_style( 'backdrop-custom-fonts', get_theme_file_uri( '/vendor/benlumia007/backdrop-core/assets/fonts/custom-fonts.css' ), array(), '1.0.0' );
     }
 
     public function boot() {
