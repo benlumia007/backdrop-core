@@ -34,17 +34,22 @@ function display( $type, $items = [] ) {
 
 function menu( $item ) {
 	if ( 'primary' === $item ) {
-		if ( has_nav_menu( 'primary' ) ) {
-			wp_nav_menu(
-				array(
-					'theme_location' => 'primary',
-					'menu_id'        => 'primary-menu',
-					'menu_class'     => 'primary-menu nav-menu',
-				)
-			);
-		}
+		if ( has_nav_menu( 'primary' ) ) { ?>
+			<nav id="primary" class="primary-navigation">
+				<button class="menu-toggle" aria-conrol="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'backdrop-core' ); ?></button>
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'menu_id'        => 'primary-menu',
+							'menu_class'     => 'primary-menu nav-menu',
+						)
+					);
+				?>
+			</nav>
+		<?php }
 	} elseif ( 'secondary' === $item ) { ?>
-		<nav id="site-navigation" class="secondary-navigation">
+		<nav id="secondary" class="secondary-navigation">
 			<?php
 				wp_nav_menu(
 					array(
@@ -56,7 +61,7 @@ function menu( $item ) {
 		</nav>
 	<?php } elseif ( 'social' === $item ) {
 		if ( has_nav_menu( 'social' ) ) { ?>
-			<nav id="site-social" class="site-social">
+			<nav id="social" class="site-social">
 				<?php
 					wp_nav_menu(
 						array(
