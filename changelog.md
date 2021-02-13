@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.1.6 
+- This is the last update for version 1.0.0
+
+## 1.1.2 - November 18, 2020
+- Add Support for ClassicPress
+
+## 1.1.1 - April 10, 2020
+- Merged 
+
+## 1.1.0 - March 21, 2020
+- update minor fixes
+
+## 1.0.9 - March 21, 2020
+- fixed namespace
+
+## 1.0.8 - March 17, 2020
+- fixed divs
+
+## 1.0.7 - March 17, 2020
+- backdropScreenReaderText to backdropCoreScreenReaderText
+
+## 1.0.6 - February 25, 2020
+- updated
+
 ## 1.0.5 - June 26, 2019
 - add widget-area class to dyanmic_sidebar( $item )
 - fixed santize for layouts $setting->id
