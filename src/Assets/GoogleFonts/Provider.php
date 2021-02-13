@@ -11,7 +11,7 @@
 /**
  * Define namespace
  */
-namespace Benlumia007\Backdrop\Assets;
+namespace Benlumia007\Backdrop\Assets\GoogleFonts;
 use Benlumia007\Backdrop\Tools\ServiceProvider;
 use Benlumia007\Backdrop\Assets\GoogleFonts;
 
@@ -21,7 +21,7 @@ use Benlumia007\Backdrop\Assets\GoogleFonts;
  * @since  5.0.0
  * @access public
  */
-class GoogleFontsServiceProvider extends ServiceProvider {
+class Provider extends ServiceProvider {
 
 	/**
 	 * Binds the implementation of the attributes contract to the container.

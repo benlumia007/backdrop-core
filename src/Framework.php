@@ -17,8 +17,8 @@ use Benlumia007\Backdrop\Contracts\Core\Framework as FrameworkContract;
 use Benlumia007\Backdrop\Contracts\Bootable;
 use Benlumia007\Backdrop\Proxies\Proxy;
 use Benlumia007\Backdrop\Proxies\App;
-use Benlumia007\Backdrop\Assets\FontAwesomeServiceProvider;
-use Benlumia007\Backdrop\Assets\GoogleFontsServiceProvider;
+use Benlumia007\Backdrop\Assets\FontAwesome\Provider as FontAwesomeServiceProvider;
+use Benlumia007\Backdrop\Assets\GoogleFonts\Provider as GoogleFontsServiceProvider;
 
 /**
  * Application class.
@@ -126,7 +126,7 @@ class Framework extends Container implements FrameworkContract, Bootable {
 	 */
 	protected function registerDefaultProxies() {
 
-		$this->proxy( App::class, '\Hybrid\App' );
+		$this->proxy( App::class, 'Benlumia007\Backdrop\App' );
 	}
 
 	/**
