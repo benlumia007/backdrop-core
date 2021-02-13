@@ -13,7 +13,7 @@
  */
 namespace Benlumia007\Backdrop\Assets\GoogleFonts;
 use Benlumia007\Backdrop\Tools\ServiceProvider;
-use Benlumia007\Backdrop\Assets\GoogleFonts;
+use Benlumia007\Backdrop\Assets\GoogleFonts\Component;
 
 /**
  * Attr provider class.
@@ -32,9 +32,9 @@ class Provider extends ServiceProvider {
 	 */
 	public function register() {
 
-		$this->app->bind( GoogleFonts::class );
+		$this->app->bind( Component::class );
 
-		$this->app->alias( GoogleFonts::class, 'googlefonts' );
+		$this->app->alias( Component::class, 'googlefonts' );
     }
     
     public function boot() {

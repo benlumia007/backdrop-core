@@ -13,7 +13,7 @@
  */
 namespace Benlumia007\Backdrop\Assets\FontAwesome;
 use Benlumia007\Backdrop\Tools\ServiceProvider;
-use Benlumia007\Backdrop\Assets\FontAwesome;
+use Benlumia007\Backdrop\Assets\FontAwesome\Component;
 
 /**
  * Attr provider class.
@@ -32,9 +32,9 @@ class Provider extends ServiceProvider {
 	 */
 	public function register() {
 
-		$this->app->bind( FontAwesome::class );
+		$this->app->bind( Component::class );
 
-		$this->app->alias( FontAwesome::class, 'fontawesome' );
+		$this->app->alias( Component::class, 'fontawesome' );
     }
     
     public function boot() {
