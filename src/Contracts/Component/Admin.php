@@ -17,7 +17,7 @@ use Benlumia007\Backdrop\Contracts\Bootable;
 /**
  * Admin
  */
-interface Admin {
+interface Admin extends Bootable {
 	/**
 	 * menu()
 	 * 
