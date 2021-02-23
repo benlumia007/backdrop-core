@@ -20,7 +20,7 @@ use Benlumia007\Backdrop\Contracts\Bootable;
  * @since  2.0.0
  * @access public
  */
-interface Customize {
+interface Customize extends Bootable {
 	/**
 	 * Register panels
 	 */
